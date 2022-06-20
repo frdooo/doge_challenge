@@ -1,0 +1,116 @@
+@import "../../globall.scss";
+
+.subheader {
+    background-color: #fff;
+    height: 66px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    position: relative;
+    @include mobile {
+        height: 150px;
+    }
+
+    .wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px 180px;
+        @include mobile {
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .menu {
+            display: flex;
+
+            .line {
+                position: absolute;
+                bottom: 0;
+                left: 180px;
+                width: 93px;
+                height: 2px;
+                background-color: #ba723d;
+                &.line1 {
+                    position: absolute;
+                    bottom: 0;
+                    left: 295px;
+                    width: 95px;
+                    @include mobile {
+                        bottom: 70px;
+                        left: 110px;
+                        width: 72px;
+                    }
+                }
+                &.line2 {
+                    position: absolute;
+                    bottom: 0;
+                    left: 412px;
+                    width: 78px;
+                    @include mobile {
+                        bottom: 70px;
+                        left: 203px;
+                        width: 60px;
+                    }
+                }
+                &.line3 {
+                    position: absolute;
+                    bottom: 0;
+                    left: 513px;
+                    width: 85px;
+                    @include mobile {
+                        bottom: 70px;
+                        left: 287px;
+                        width: 70px;
+                    }
+                }
+                @include mobile {
+                    bottom: 70px;
+                    left: 8px;
+                    width: 80px;
+                }
+            }
+            a {
+                text-decoration: none;
+            }
+            span {
+                margin-right: 24px;
+                font-weight: 800;
+                font-size: 13px;
+                line-height: 18px;
+                text-transform: uppercase;
+                color: #f8ccab;
+                &.active {
+                    color: #ba723d;
+                }
+                @include mobile {
+                    font-size: 10px;
+                    line-height: 18px;
+                }
+            }
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 137px;
+            height: 44px;
+            background: #ba723d;
+            border-radius: 5px;
+            @include mobile {
+                width: 344px;
+                height: 44px;
+                margin-top: 50px;
+            }
+            span {
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 24px;
+                color: #ffffff;
+            }
+        }
+    }
+}

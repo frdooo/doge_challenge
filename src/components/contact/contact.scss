@@ -1,0 +1,328 @@
+@import "../../globall.scss";
+
+.contact {
+    background-color: #ffffff;
+    width: 100%;
+    height: calc(100vh + 270px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .trust {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        .left {
+            display: flex;
+            margin-right: 116px;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 32px;
+            color: #ba723d;
+            @include mobile {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include mobile {
+                margin-left: 60px;
+                flex-wrap: wrap;
+                width: 400px;
+            }
+            img {
+                margin-right: 60px;
+                @include mobile {
+                    margin-bottom: 33px;
+                }
+            }
+        }
+    }
+
+    h1 {
+        top: 150px;
+        left: 235px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        display: flex;
+        align-items: center;
+        color: #ba723d;
+        position: absolute;
+        @include mobile {
+            top: 210px;
+            left: 20px;
+        }
+    }
+
+    .line {
+        position: absolute;
+        top: 195px;
+        left: 235px;
+        width: 32px;
+        height: 2px;
+        background-color: #ba723d;
+        @include mobile {
+            top: 250px;
+            left: 20px;
+            width: 25px;
+        }
+    }
+
+    span {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 19px;
+
+        color: #95a2ab;
+        margin-bottom: 7px;
+    }
+
+    .wrapper {
+        margin-top: 160px;
+        position: relative;
+        margin-left: 140px;
+        display: flex;
+        flex-direction: column;
+        @include mobile {
+            margin-left: 20px;
+            margin-top: 380px;
+        }
+        .top {
+            margin-bottom: 24px;
+            margin-top: 48px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            color: #0d1a20;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            @include mobile {
+                flex-direction: column;
+            }
+
+            span {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 19px;
+                color: #95a2ab;
+                margin-bottom: 7px;
+            }
+            .left {
+                display: flex;
+                flex-direction: column;
+                margin-right: 22px;
+                flex: 1;
+                input {
+                    width: 418px;
+                    height: 39px;
+                    padding-left: 12px;
+                    background: #ffffff;
+                    border: 1px solid rgba(169, 165, 197, 0.5);
+                    margin-bottom: 24px;
+                    @include mobile {
+                        width: 300px;
+                    }
+                }
+                .picker {
+                    cursor: pointer;
+                }
+
+                .pickerIcon {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 321px;
+                    left: 405px;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            .right {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                position: relative;
+                @include mobile {
+                    margin-right: 20px;
+                }
+                input {
+                    width: 418px;
+                    height: 39px;
+                    padding-left: 12px;
+                    background: #ffffff;
+                    border: 1px solid rgba(169, 165, 197, 0.5);
+                    margin-bottom: 29px;
+                    @include mobile {
+                        width: 300px;
+                    }
+                }
+                .email {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 10px;
+                    line-height: 14px;
+                    color: #f91515;
+                    top: 75px;
+                }
+
+                .eye {
+                    cursor: pointer;
+                    bottom: 40px;
+                    right: 15px;
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .emailInput {
+                width: 418px;
+                height: 39px;
+                padding-left: 12px;
+                background: #ffffff;
+                border: 1px solid rgba(169, 165, 197, 0.5);
+                margin-bottom: 24px;
+                @include mobile {
+                    width: 300px;
+                }
+
+                &.emailErr {
+                    border: 1px solid rgba(249, 21, 21, 0.5);
+                }
+            }
+            select {
+                width: 436px;
+                height: 39px;
+                background: #ffffff;
+                border: 1px solid rgba(169, 165, 197, 0.5);
+                margin-bottom: 24px;
+                @include mobile {
+                    width: 317px;
+                }
+            }
+        }
+        .comment {
+            width: 100%;
+            height: 100%;
+            margin-top: 10px;
+            .textComment {
+                width: 895px;
+                height: 169px;
+                background-color: #f4f4f4;
+                border: 1px solid rgba(169, 165, 197, 0.5);
+                @include mobile {
+                    width: 317px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include mobile {
+            flex-direction: column;
+        }
+        input {
+            margin-right: 11px;
+        }
+        .button {
+            cursor: pointer;
+            width: 213px;
+            height: 44px;
+            padding: 10px;
+            background-color: #ba723d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            @include mobile {
+                width: 250px;
+                height: 30px;
+                margin-top: 20px;
+            }
+
+            &.loading {
+                background: #e19e6c;
+            }
+            &.submit {
+                background-color: #31b456;
+            }
+            span {
+                margin-right: 10px;
+                font-style: normal;
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 24px;
+                color: #ffffff;
+            }
+        }
+    }
+
+    $spinner: #ffffff;
+    $background: #e19e6c;
+    $size: 30px;
+
+    .spinner {
+        width: $size;
+        height: $size;
+        animation: spinner 0.75s linear infinite;
+        margin-right: 12px;
+
+        span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .spinner-inner-1 {
+            background: linear-gradient(to right, rgba($spinner, 0) 0%, rgba($spinner, 0) 50%, $spinner 51%);
+        }
+
+        .spinner-inner-2 {
+            background: linear-gradient(to top, rgba($background, 0) 0%, $background 100%);
+        }
+
+        .spinner-inner-3 {
+            $offset: $size * 0.1;
+            top: $offset;
+            left: $offset;
+            width: $size - ($offset * 2);
+            height: $size - ($offset * 2);
+            background: $background;
+        }
+    }
+
+    @keyframes spinner {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

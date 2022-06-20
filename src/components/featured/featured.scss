@@ -1,0 +1,268 @@
+@import "../../globall.scss";
+
+.featured {
+    background: linear-gradient(180deg, #ffe5d0 0%, #ffecdd 100%);
+    height: 100%;
+    position: relative;
+    z-index: 99;
+
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        margin-top: 40px;
+        @include mobile {
+            padding: 0px 40px;
+        }
+
+        .title {
+            font-family: "Merriweather";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 80px;
+            text-transform: uppercase;
+            @include mobile {
+                font-size: 30px;
+                line-height: 90px;
+                color: #0d1a20;
+            }
+        }
+
+        .cntitle {
+            font-family: "Microsoft YaHei";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 32px;
+            text-transform: uppercase;
+            color: #d1a079;
+
+            @include mobile {
+                font-family: "Source Han Sans SC";
+                font-weight: 350;
+                font-size: 15px;
+                line-height: 32px;
+                color: #0d1a20;
+            }
+        }
+
+        .subtitle {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 24px;
+
+            /* identical to box height, or 100% */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90.24deg, #7062f8 1.37%, #7f74fc 20.95%, #25c0f1 41.49%, #186df7 62.99%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            @include mobile {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 14px;
+
+                /* identical to box height, or 100% */
+                display: flex;
+                align-items: center;
+
+                background: linear-gradient(90.24deg, #7062f8 1.37%, #a79fff 20.95%, #64d8fd 41.49%, #438bff 62.99%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        .slider {
+            margin-top: 50px;
+            width: max-content;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            transform: translateX(0px);
+            transition: all 1s ease;
+            margin-bottom: 100px;
+
+            @include mobile {
+                flex-direction: column;
+            }
+
+            .slide {
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                margin-right: 20px;
+
+                img {
+                    width: 300px;
+                }
+
+                .wrapper {
+                    position: relative;
+                    .arrow {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid #a7591d;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        float: right;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        &:hover {
+                            background: linear-gradient(102.71deg, #8148fb 4.74%, #70a0ff 95.37%);
+                        }
+
+                        img {
+                            width: 32px;
+                        }
+
+                        @include mobile {
+                            display: none;
+                        }
+                    }
+                    span {
+                        padding-top: 20px;
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 16px;
+                        line-height: 24px;
+
+                        /* identical to box height, or 150% */
+                        display: flex;
+                        color: #a7591d;
+                    }
+                    h1 {
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 32px;
+                        line-height: 50px;
+
+                        /* identical to box height, or 156% */
+                        text-transform: uppercase;
+
+                        color: #0d1a20;
+                    }
+                    h3 {
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 16px;
+                        line-height: 24px;
+
+                        /* identical to box height, or 150% */
+                        display: flex;
+                        align-items: center;
+
+                        color: #0d1a20;
+                    }
+
+                    p {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 26px;
+
+                        /* identical to box height, or 173% */
+
+                        color: #0d1a20;
+                    }
+                }
+            }
+        }
+
+        .arrowWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 400px;
+            z-index: 999;
+            position: absolute;
+            right: 10px;
+            top: 180px;
+            background: linear-gradient(269.79deg, #ffeadb 0.16%, rgba(255, 234, 219, 0) 94.51%);
+            @include mobile {
+                display: none;
+            }
+
+            img {
+                margin-bottom: 80px;
+                margin-left: 70px;
+                width: 36px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .botContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 70px;
+
+        h1 {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 50px;
+
+            /* identical to box height, or 156% */
+            text-transform: uppercase;
+
+            color: #81625c;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            min-width: 400px;
+            border: 1px solid #d1d9de;
+            box-shadow: 0px 6px 12px rgba(149, 162, 171, 0.2);
+            border-radius: 8px;
+            padding-left: 32px;
+            background-color: #ffff;
+            th,
+            td {
+                padding: 12px 32px;
+            }
+            tbody tr {
+                border-bottom: 1px solid #e7e8eb;
+            }
+            tbody tr:last-of-type {
+                background: #f8f8f8;
+                border-radius: 0px 0px 7px 7px;
+            }
+            thead tr {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 19px;
+                color: #a0a8c1;
+                text-align: left;
+                border-bottom: 1px solid #e7e8eb;
+            }
+
+            .status {
+                display: flex;
+                width: 50px;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                color: #f22f2f;
+                padding: 2px 6px;
+                background-color: #f9e9e9;
+                border-radius: 30px;
+            }
+        }
+    }
+
+    .bottom {
+        height: 150px;
+        margin-top: -73px;
+        width: 100%;
+        background-color: #f8cdab;
+    }
+}

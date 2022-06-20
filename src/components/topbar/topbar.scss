@@ -1,0 +1,113 @@
+@import "../../globall.scss";
+
+.topbar {
+    width: 100%;
+    top: 10;
+    z-index: 99999;
+
+    .wrapper {
+        width: 100%;
+        padding-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include mobile {
+            padding-top: 10px;
+        }
+
+        .left {
+            padding-left: 70px;
+            @include mobile {
+                padding-left: 15px;
+            }
+            img {
+                width: 245px;
+                height: 60px;
+                @include mobile {
+                    width: 140px;
+                    height: 40px;
+                }
+            }
+        }
+
+        .right {
+            padding-left: 27px;
+            @include mobile {
+                display: none;
+            }
+            .link {
+                padding-right: 40px;
+                font-weight: 500;
+                font-size: 17px;
+                line-height: 23px;
+                color: #fe7c54;
+                opacity: 0.8;
+                cursor: pointer;
+                text-decoration: none;
+                &:hover {
+                    color: #f9480b;
+                }
+                &:active {
+                    color: #f9480b;
+                }
+            }
+        }
+
+        .hamburger {
+            margin-right: 20px;
+            @include desktop {
+                display: none;
+            }
+        }
+
+        .exit {
+            display: none;
+        }
+
+        .menu {
+            width: 350px;
+            height: 100vh;
+            background-color: #f8ccab;
+            position: fixed;
+            top: 0;
+            right: -100px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 1s ease;
+            padding-left: 40px;
+            img {
+                width: 30px;
+                position: fixed;
+                top: 40px;
+                right: 20px;
+            }
+            &.clicked {
+                display: none;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 30px;
+                font-weight: 300;
+                color: white;
+                width: 60%;
+
+                li {
+                    margin-bottom: 25px;
+                    a {
+                        font-size: inherit;
+                        color: inherit;
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}

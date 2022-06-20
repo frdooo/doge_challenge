@@ -1,0 +1,171 @@
+@import "../../globall.scss";
+
+.clients {
+    width: 100%;
+    height: calc(100vh + 200px);
+    background-color: #0d1a20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .chevronRight {
+        cursor: pointer;
+        top: 410px;
+        left: 199px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        border: 1px solid #ffffff;
+        z-index: 8;
+        .arrowRight {
+            transform: rotate(180deg);
+            padding: 16px;
+        }
+
+        @include mobile {
+            top: 440px;
+            left: 35px;
+        }
+    }
+    .chevronLeft {
+        top: 410px;
+        right: 199px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ffffff;
+        z-index: 8;
+        cursor: pointer;
+        .arrowLeft {
+            padding: 16px;
+        }
+        @include mobile {
+            top: 440px;
+            right: 35px;
+        }
+    }
+    .line {
+        position: absolute;
+        top: 240px;
+        left: 235px;
+        width: 32px;
+        height: 2px;
+        background-color: #ffffff;
+
+        @include mobile {
+            left: 20px;
+        }
+    }
+
+    h1 {
+        top: 200px;
+        left: 235px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        position: absolute;
+        @include mobile {
+            left: 20px;
+        }
+    }
+
+    .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        margin-top: 20px;
+        transition: all 1s ease-out;
+
+        .wrapper {
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .item {
+                width: 700px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                h3 {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 17px;
+
+                    /* or 142% */
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    text-transform: uppercase;
+
+                    /* Style/White */
+                    color: #ffffff;
+                }
+                span {
+                    font-style: normal;
+                    font-weight: 200;
+                    font-size: 12px;
+                    line-height: 17px;
+
+                    /* or 142% */
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #ffffff;
+                }
+                .profile {
+                    border-radius: 132px;
+                    width: 90px;
+                    height: 90px;
+                    margin-bottom: 27px;
+                }
+                p {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    text-align: center;
+                    color: #ffffff;
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    .scroll {
+        width: 140px;
+        height: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 8;
+        position: absolute;
+        top: 550px;
+        @include mobile {
+            top: 660px;
+        }
+        span {
+            width: 100%;
+            background-color: #9797bf;
+            height: 3px;
+            margin-left: 12px;
+            &.active {
+                background-color: #ffffff;
+            }
+        }
+    }
+}

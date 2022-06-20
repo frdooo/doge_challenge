@@ -1,0 +1,87 @@
+@import "../../globall.scss";
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+
+    .top {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 206px;
+        background-color: white;
+
+        @include mobile {
+            height: 300px;
+        }
+        .logo {
+            margin-top: 32px;
+            width: 245px;
+            height: 60px;
+        }
+        .social {
+            display: flex;
+            align-items: center;
+            margin-top: 27.79px;
+            .icon {
+                margin-right: 11px;
+                cursor: pointer;
+            }
+            @include mobile {
+                margin-top: 10px;
+
+                .icon {
+                    height: 25px;
+                }
+            }
+        }
+        .menu {
+            margin-top: 32px;
+            display: flex;
+
+            @include mobile {
+                margin-top: 10px;
+                display: flex;
+                width: 200px;
+                .left {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                }
+                .right {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                }
+            }
+            span {
+                font-style: normal;
+                margin-right: 45px;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 20px;
+                cursor: pointer;
+                color: #0d1a20;
+                @include mobile {
+                    margin-right: 10px;
+                    margin-bottom: 21px;
+                }
+            }
+        }
+    }
+    .bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 43px;
+        background-color: #ba723d;
+        color: #fff9f4;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+    }
+}
