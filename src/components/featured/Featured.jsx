@@ -133,6 +133,38 @@ export default function Featured() {
 						</tr>
 					</tbody>
 				</table>
+				<div className="mobile-table">
+					<div className="left">
+						<span className="tableTitle">What is it</span>
+						<span>Pizza</span>
+						<span className="tableTitle">Date</span>
+						<span>04/30/2021</span>
+
+						<div className="status">New</div>
+					</div>
+					<div className="right">
+						<span className="tableTitle">Flavor</span>
+						<span>4 seasons</span>
+						<span className="tableTitle">Where</span>
+						<span>At home</span>
+					</div>
+				</div>
+				<div className="mobile-table">
+					<div className="left">
+						<span className="tableTitle">What is it</span>
+						<span>Wine</span>
+						<span className="tableTitle">Date</span>
+						<span>04/30/2021</span>
+
+						<div className="status">Ongoing</div>
+					</div>
+					<div className="right">
+						<span className="tableTitle">Flavor</span>
+						<span>Red</span>
+						<span className="tableTitle">Where</span>
+						<span>Outside</span>
+					</div>
+				</div>
 			</div>
 			<div className="bottom" />
 		</div>

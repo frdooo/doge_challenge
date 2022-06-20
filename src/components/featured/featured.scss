@@ -85,6 +85,7 @@
 
             @include mobile {
                 flex-direction: column;
+                margin-bottom: 80px;
             }
 
             .slide {
@@ -200,17 +201,85 @@
         display: flex;
         flex-direction: column;
         margin: 0px 70px;
+        position: relative;
+
+        @include desktop {
+            .mobile-table {
+                display: none;
+            }
+        }
+        @include mobile {
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            .mobile-table {
+                margin-top: 60px;
+                position: relative;
+                display: flex;
+                width: 310px;
+                background-color: #ffffff;
+                border: 1px solid #d1d9de;
+                box-shadow: 0px 6px 12px rgba(149, 162, 171, 0.2);
+                border-radius: 8px;
+                flex-direction: row;
+                padding: 24px;
+                .left {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 0.5;
+                }
+                .right {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 0.5;
+                }
+                .tableTitle {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #95a2ab;
+                    margin-top: 12px;
+                }
+                span {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #0d1a20;
+                }
+
+                .status {
+                    position: absolute;
+                    right: 12px;
+                    top: 12px;
+                    display: flex;
+                    width: 50px;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #f22f2f;
+                    padding: 2px 6px;
+                    background-color: #f9e9e9;
+                    border-radius: 30px;
+                }
+            }
+        }
 
         h1 {
             font-style: normal;
             font-weight: 800;
             font-size: 32px;
             line-height: 50px;
-
-            /* identical to box height, or 156% */
             text-transform: uppercase;
-
             color: #81625c;
+            @include mobile {
+                position: absolute;
+                left: 15px;
+                bottom: 370px;
+            }
         }
 
         .styled-table {
@@ -222,6 +291,10 @@
             border-radius: 8px;
             padding-left: 32px;
             background-color: #ffff;
+
+            @include mobile {
+                display: none;
+            }
             th,
             td {
                 padding: 12px 32px;
@@ -264,5 +337,9 @@
         margin-top: -73px;
         width: 100%;
         background-color: #f8cdab;
+        @include mobile {
+            height: 200px;
+            margin-top: -38px;
+        }
     }
 }

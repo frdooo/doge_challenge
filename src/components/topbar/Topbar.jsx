@@ -32,19 +32,23 @@ export default function Topbar() {
 				<div className="hamburger">
 					<img onClick={() => setMenuOpen(true)} src="assets/svg/burger.svg" alt="" />
 				</div>
-				<div className={!menuOpen ? 'menu clicked' : 'menu'}>
+				<div className={!menuOpen ? 'menu active' : 'menu'}>
 					<img
 						onClick={() => setMenuOpen(false)}
 						src="assets/svg/x.svg"
 						alt=""
-						className={!menuOpen ? 'exit' : ''}
+						className={!menuOpen ? 'exit active' : 'exit'}
 					/>
 					<ul>
 						<li onClick={() => setMenuOpen(false)}>
-							<a href="#intro">Home</a>
+							<Link className="link" to="/">
+								Home
+							</Link>
 						</li>
 						<li onClick={() => setMenuOpen(false)}>
-							<a href="#portfolio">About</a>
+							<Link className="link" to="/about">
+								About
+							</Link>
 						</li>
 						<li onClick={() => setMenuOpen(false)}>
 							<a href="#works">Testimonial</a>
@@ -53,6 +57,11 @@ export default function Topbar() {
 							<a href="#testimonials">Contact</a>
 						</li>
 					</ul>
+
+					<div className="social">
+						<img src="assets/svg/wechatsmall.svg" alt="" />
+						<img src="assets/svg/linkedinsmall.svg" alt="" />
+					</div>
 				</div>
 			</div>
 		</div>
