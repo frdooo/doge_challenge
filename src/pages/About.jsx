@@ -20,7 +20,6 @@ function About() {
 		}
 	};
 
-	window.addEventListener('scroll', setFixed);
 	return (
 		<div className="about" onScroll={setFixed}>
 			<div className="header">

@@ -7,12 +7,15 @@ import Footer from '../footer/Footer';
 export default function Gallery() {
 	const [ images, setImages ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
+	const [ offsetY, setOffsetY ] = useState(0);
+
+	const handleScroll = (e) => setOffsetY(e.target.scrollTop);
+
 	const getImages = async (e) => {
 		const items = [];
 		axios
 			.get('http://shibe.online/api/shibes?count=9')
 			.then((res) => {
-				console.log(images.length);
 				for (let i = 0; i < res.data.length; i++) {
 					items.push({ url: res.data[i] });
 				}
@@ -26,7 +29,6 @@ export default function Gallery() {
 				}
 
 				setIsLoading(false);
-				console.log(images);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -44,7 +46,7 @@ export default function Gallery() {
 	};
 
 	return (
-		<div className="gallery">
+		<div className="gallery" onScroll={handleScroll}>
 			<Topbar />
 			<div className="container">
 				<div className="top">
@@ -72,8 +74,21 @@ export default function Gallery() {
 				</div>
 			</div>
 			<div className="parallax">
-				<img className="duck" src="assets/parallax/duckpeluche.png" alt="" />
-				<img className="tennis" src="assets/parallax/tennisball.png" alt="" />
+				<img
+					style={{
+						transform: `translateY(${offsetY * 0.1}px)`,
+						transform: `translateX(-${offsetY * 0.2}px)`
+					}}
+					className="duck"
+					src="assets/parallax/duckpeluche.png"
+					alt=""
+				/>
+				<img
+					style={{ transform: `translateX(${offsetY * 0.1}px)` }}
+					className="tennis"
+					src="assets/parallax/tennisball.png"
+					alt=""
+				/>
 				<img className="chicken" src="assets/parallax/screamingchicken.png" alt="" />
 			</div>
 			<Footer />
