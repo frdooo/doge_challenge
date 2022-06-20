@@ -3,11 +3,12 @@ import './featured.scss';
 
 export default function Featured() {
 	const [ slideNumber, setSlideNumber ] = useState(0);
+	const [ hover, setHover ] = useState(false);
 	const slideRef = useRef();
 
 	const handleClick = () => {
 		let distance = slideRef.current.getBoundingClientRect().x - 70;
-		if (slideNumber < 2) {
+		if (slideNumber < 3) {
 			setSlideNumber(slideNumber + 1);
 			slideRef.current.style.transform = `translateX(${-340 + distance}px)`;
 		} else {
@@ -26,8 +27,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('1')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '1' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>
@@ -38,8 +43,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('2')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '2' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>
@@ -50,8 +59,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('3')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '3' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>
@@ -62,8 +75,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('4')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '4' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>
@@ -74,8 +91,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('5')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '5' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>
@@ -86,8 +107,12 @@ export default function Featured() {
 					<div className="slide">
 						<img src="assets/img3.jpg" alt="" />
 						<div className="wrapper">
-							<div className="arrow">
-								<img src="assets/png/arrowprojectdefault.png" alt="" />
+							<div onMouseOver={() => setHover('6')} onMouseOut={() => setHover('0')} className="arrow">
+								{hover === '6' ? (
+									<img src="assets/png/arrowprojectactive.png" alt="" />
+								) : (
+									<img src="assets/png/arrowprojectdefault.png" alt="" />
+								)}
 							</div>
 							<span>Project type</span>
 							<h1 className="slide">PROJECT NAME</h1>

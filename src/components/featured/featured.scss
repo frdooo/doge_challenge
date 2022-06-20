@@ -113,7 +113,11 @@
                         right: 0;
                         top: 0;
                         &:hover {
+                            border: 1px;
                             background: linear-gradient(102.71deg, #8148fb 4.74%, #70a0ff 95.37%);
+                            &:active {
+                                background: linear-gradient(102.71deg, #5f25d9 4.74%, #538dff 95.37%);
+                            }
                         }
 
                         img {
