@@ -76,8 +76,7 @@ export default function Gallery() {
 			<div className="parallax">
 				<img
 					style={{
-						transform: `translateY(${offsetY * 0.1}px)`,
-						transform: `translateX(-${offsetY * 0.2}px)`
+						transform: `translateX(-${offsetY * 0.1}px)`
 					}}
 					className="duck"
 					src="assets/parallax/duckpeluche.png"

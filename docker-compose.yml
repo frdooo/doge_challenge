@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/doge_challenge
+    ports:
+      - 3000:3000
+    image: app:react
+    container_name: react_container
+    command: npm start
