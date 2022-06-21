@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './introduction.scss';
-import { Player } from 'video-react';
 
 function Introduction() {
 	const [ play, setPlay ] = useState(false);
@@ -43,9 +42,9 @@ function Introduction() {
 						{!play ? (
 							<Thumbnail />
 						) : (
-							<Player autoPlay>
-								<source poster="/assets/videothumbnail.png" src="assets/video.mp4" />
-							</Player>
+							<video autoPlay controls>
+								<source src="assets/video.mp4" type="video/mp4" />
+							</video>
 						)}
 					</div>
 				</div>

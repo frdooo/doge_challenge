@@ -52,6 +52,7 @@ export default function Gallery() {
 				<div className="top">
 					<h1>Doge Life</h1>
 					<h3>Browse some of Vital’s client photography portfolio</h3>
+					<div className="switch" />
 				</div>
 				<div className="bottom">
 					{!images ? (

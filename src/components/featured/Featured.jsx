@@ -127,7 +127,7 @@ export default function Featured() {
 			</div>
 			<div className="botContainer">
 				<h1>what i like</h1>
-				<table class="styled-table">
+				<table className="styled-table">
 					<thead>
 						<tr>
 							<th>What is it</th>
@@ -147,7 +147,7 @@ export default function Featured() {
 								<div className="status">New</div>
 							</td>
 						</tr>
-						<tr class="active-row">
+						<tr className="active-row">
 							<td>Wine</td>
 							<td>Red</td>
 							<td>04/30/2021</td>
