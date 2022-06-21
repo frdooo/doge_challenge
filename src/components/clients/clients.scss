@@ -25,14 +25,14 @@
         }
 
         @include mobile {
-            top: 440px;
+            top: 480px;
             left: 35px;
         }
     }
     .chevronLeft {
+        position: absolute;
         top: 410px;
         right: 199px;
-        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -43,25 +43,26 @@
             padding: 16px;
         }
         @include mobile {
-            top: 440px;
+            top: 480px;
             right: 35px;
         }
     }
     .line {
         position: absolute;
-        top: 240px;
+        top: 210px;
         left: 235px;
         width: 32px;
         height: 2px;
         background-color: #ffffff;
 
         @include mobile {
+            top: 270px;
             left: 20px;
         }
     }
 
     h1 {
-        top: 200px;
+        top: 170px;
         left: 235px;
         font-style: normal;
         font-weight: 800;
@@ -72,6 +73,7 @@
         color: #ffffff;
         position: absolute;
         @include mobile {
+            top: 230px;
             left: 20px;
         }
     }
@@ -153,8 +155,7 @@
         justify-content: center;
         align-items: center;
         z-index: 8;
-        position: absolute;
-        top: 550px;
+        margin-top: 400px;
         @include mobile {
             top: 660px;
         }

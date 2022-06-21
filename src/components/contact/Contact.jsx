@@ -107,7 +107,7 @@ const Contact = () => {
 								<DatePicker
 									className="picker"
 									selected={startDate}
-									onChange={(date: Date) => setStartDate(date)}
+									onChange={(date) => setStartDate(date)}
 								/>
 								<img className="pickerIcon" src="assets/svg/calendar.svg" alt="" />
 							</div>

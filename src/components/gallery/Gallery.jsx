@@ -5,6 +5,8 @@ import axios from 'axios';
 import Footer from '../footer/Footer';
 
 export default function Gallery() {
+	const [ animal, setAnimal ] = useState('shibes');
+	const [ toggle, setToggle ] = useState({ left: 51 });
 	const [ images, setImages ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
 	const [ offsetY, setOffsetY ] = useState(0);
@@ -14,7 +16,7 @@ export default function Gallery() {
 	const getImages = async (e) => {
 		const items = [];
 		axios
-			.get('http://shibe.online/api/shibes?count=9')
+			.get(`http://shibe.online/api/${e}?count=9`)
 			.then((res) => {
 				for (let i = 0; i < res.data.length; i++) {
 					items.push({ url: res.data[i] });
@@ -35,30 +37,59 @@ export default function Gallery() {
 			});
 	};
 
+	const handleClick = async (e) => {
+		if (e === 'cats') {
+			setToggle({ left: 0 });
+		} else if (e === 'shibes') {
+			setToggle({ left: 50 });
+		} else {
+			setToggle({ left: 102 });
+		}
+		setImages([]);
+		if (images) {
+			setIsLoading(true);
+			setAnimal(e);
+			getImages(e);
+		} else {
+			setImages([]);
+		}
+	};
+
 	useEffect(() => {
-		getImages();
+		getImages('shibes');
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const handleCLick = () => {
+	const handleLoad = () => {
 		setIsLoading(true);
-		getImages();
+		getImages(animal);
 	};
 
 	return (
 		<div className="gallery" onScroll={handleScroll}>
 			<Topbar />
+			<div className="switch">
+				<span onClick={() => handleClick('cats')}>Cats</span>
+				<span onClick={() => handleClick('shibes')}>Doges</span>
+				<span onClick={() => handleClick('birds')}>Birds</span>
+				<span style={toggle} className="toggle" />
+			</div>
 			<div className="container">
 				<div className="top">
+					<div className="switch-mobile">
+						<span onClick={() => handleClick('cats')}>Cats</span>
+						<span onClick={() => handleClick('shibes')}>Doges</span>
+						<span onClick={() => handleClick('birds')}>Birds</span>
+						<span style={toggle} className="toggle" />
+					</div>
 					<h1>Doge Life</h1>
 					<h3>Browse some of Vital’s client photography portfolio</h3>
-					<div className="switch" />
 				</div>
 				<div className="bottom">
-					{!images ? (
+					{!images && isLoading ? (
 						<div className="loading-spinner" />
 					) : (
-						images.map((image) => <img className="image" src={image.url} alt="" />)
+						images.map((image, index) => <img key={index} className="image" src={image.url} alt="" />)
 					)}
 				</div>
 				{isLoading ? (
@@ -71,7 +102,7 @@ export default function Gallery() {
 
 				<div className="wrapper">
 					<h3>Want to see more beautiful doge photography ?</h3>
-					<span onClick={() => handleCLick()}>Load more</span>
+					<span onClick={() => handleLoad()}>Load more</span>
 				</div>
 			</div>
 			<div className="parallax">
