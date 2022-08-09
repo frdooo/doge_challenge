@@ -2,28 +2,40 @@
 
 .introduction {
     background-color: #fbebe0;
-    height: calc(100vh + 270px);
+    height: calc(100vh + 100px);
     position: relative;
 
     .container {
         display: flex;
         width: 100%;
-        margin-left: 235px;
-        margin-top: 200px;
-        align-items: center;
+        margin-left: 180px;
+        margin-top: 100px;
+        align-content: center;
         @include mobile {
-            margin-top: 350px;
-            margin-left: 30px;
+            margin-top: 130px;
+            margin-left: 15px;
+            justify-content: center;
+            width: 400px;
+            margin-right: 15px;
+        }
+        @include tablet {
+            margin-top: 130px;
+            margin-left: 60px;
+            height: 600px;
         }
 
         .line {
             position: absolute;
-            top: 195px;
+            top: 75px;
             width: 32px;
             height: 2px;
             background-color: #ba723d;
             @include mobile {
-                top: 250px;
+                top: 55px;
+                left: 15px;
+            }
+            @include tablet {
+                top: 80px;
             }
         }
         .title {
@@ -35,9 +47,16 @@
             display: flex;
             align-items: center;
             color: #ba723d;
-            top: 150px;
+            top: 40px;
+            width: 100%;
             @include mobile {
-                top: 210px;
+                top: 20px;
+                font-size: 24px;
+                line-height: 32px;
+                left: 15px;
+            }
+            @include tablet {
+                top: 40px;
                 font-size: 24px;
                 line-height: 32px;
             }
@@ -47,8 +66,16 @@
             flex-direction: row;
             margin-top: 58px;
             margin-right: 70px;
+            width: 100%;
             @include mobile {
-                margin-top: 1px;
+                margin-top: -50px;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                height: 700px;
+            }
+            @include tablet {
+                margin-top: 0px;
                 flex-direction: column;
             }
 
@@ -57,8 +84,13 @@
                 margin-right: 40px;
                 display: flex;
                 flex-direction: column;
+                margin-top: 50px;
                 @include mobile {
-                    flex-direction: column;
+                    flex: 0.6;
+                    width: 100%;
+                }
+                @include tablet {
+                    flex: 0.5;
                 }
                 h1 {
                     font-style: normal;
@@ -89,17 +121,43 @@
                 position: relative;
                 margin-right: 200px;
                 @include mobile {
+                    position: relative;
+
+                    flex: 0.4;
                     align-items: center;
                     justify-content: center;
                     margin-right: 0;
-                    margin-top: 35px;
+                    width: 345px;
+                    height: 194px;
+                    padding-top: 60px;
                 }
-                .thumbnail {
-                    height: 380px;
+                @include tablet {
+                    flex: 0.5;
+                    width: 650px;
+                    height: 290px;
+                }
+                @include desktop {
+                    .thumbnailMobile {
+                        display: none;
+                    }
+                }
+                .thumbnailMobile {
                     @include mobile {
-                        margin-top: 20px;
+                        margin-left: 10px;
+                        margin-right: 10px;
                         width: 345px;
                         height: 194px;
+                    }
+                }
+                .thumbnail {
+                    width: 750px;
+                    height: 422px;
+                    @include mobile {
+                        display: none;
+                    }
+                    @include tablet {
+                        width: 650px;
+                        height: 290px;
                     }
                 }
 
@@ -124,8 +182,8 @@
                     @include mobile {
                         width: 12px;
                         height: 12px;
-                        bottom: 15px;
-                        left: 12px;
+                        bottom: 35px;
+                        left: 22px;
                     }
                 }
                 .playButton {
@@ -149,8 +207,8 @@
                     @include mobile {
                         width: 63px;
                         height: 12px;
-                        bottom: 15px;
-                        left: 57px;
+                        bottom: 35px;
+                        left: 60px;
                     }
 
                     .buttonText {

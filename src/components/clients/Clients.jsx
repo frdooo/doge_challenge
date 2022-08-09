@@ -11,7 +11,8 @@ const Clients = () => {
 			name: 'Name',
 			company: 'Company',
 			title: 'title',
-			desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			desc:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae sagittis suspendisse eu leo sed nulla. Ipsum commodo sit augue gravida volutpat. Nunc enim dolor, sit in. Id ut nibh et morbi lectus orci. '
 		},
 		{
 			id: '2',
@@ -47,7 +48,11 @@ const Clients = () => {
 			<div className="chevronLeft" onClick={() => handleClick()}>
 				<img className="arrowLeft" src="assets/png/chevronbutton.png" alt="" />
 			</div>
-			<div className="slider" style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
+			<div
+				className="slider"
+				onClick={() => handleClick()}
+				style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
+			>
 				{data.map((d) => (
 					<div className="wrapper">
 						<div className="item">

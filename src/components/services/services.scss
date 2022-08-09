@@ -2,10 +2,12 @@
 
 .services {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh + 150px);
     background-color: #fff;
-    padding-bottom: 200px;
     position: relative;
+    @include mobile {
+        height: calc(100vh + 350px);
+    }
 
     h1 {
         font-weight: 800;
@@ -16,7 +18,11 @@
         margin-left: 235px;
         margin-top: 165px;
         @include mobile {
-            margin-top: 210px;
+            margin-top: 60px;
+            margin-left: 20px;
+        }
+        @include tablet {
+            margin-top: 150px;
             margin-left: 20px;
         }
     }
@@ -28,7 +34,11 @@
         height: 2px;
         background-color: #ba723d;
         @include mobile {
-            top: 245px;
+            top: 100px;
+            left: 20px;
+        }
+        @include tablet {
+            top: 195px;
             left: 20px;
         }
     }
@@ -47,6 +57,11 @@
             width: 100%;
             margin-left: 0;
         }
+        @include tablet {
+            flex-direction: column;
+            width: 100%;
+            margin-left: 0;
+        }
         .section {
             display: flex;
             flex-direction: column;
@@ -56,19 +71,10 @@
             @include mobile {
                 width: 100%;
             }
+
             .title {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                img {
-                    margin-right: 27.57px;
-                    width: 30px;
-                    @include mobile {
-                        width: 47px;
-                        margin-right: 32px;
-                    }
-                }
+                position: relative;
+
                 h3 {
                     font-style: normal;
                     font-weight: 700;
@@ -77,15 +83,28 @@
                     text-transform: uppercase;
                     color: #ba723d;
                     margin-bottom: 14px;
+                    margin-left: 89px;
+                    @include mobile {
+                        width: 250px;
+                    }
                 }
             }
+            img {
+                position: absolute;
+                width: 30px;
+                @include mobile {
+                    width: 47px;
+                    left: 15px;
+                }
+            }
+
             p {
                 font-style: normal;
                 font-weight: 400;
                 font-size: 15px;
                 line-height: 26px;
                 color: #0d1a20;
-                padding-left: 103px;
+                padding-left: 89px;
             }
         }
     }

@@ -13,7 +13,7 @@ function About() {
 	const [ fix, setFix ] = useState(false);
 
 	const setFixed = (e) => {
-		if (e.target.scrollTop > 500) {
+		if (e.target.scrollTop > 512) {
 			setFix(true);
 		} else {
 			setFix(false);

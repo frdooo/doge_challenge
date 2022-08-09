@@ -47,7 +47,7 @@ function Subheader() {
 							<span onClick={() => handleClick('client')}>Our Client</span>
 						)}
 					</a>
-					<a href="#contact">
+					<a className="contactus" href="#contact">
 						{clicked === 'contact' ? (
 							<div>
 								<span className="active" onClick={() => handleClick('contact')}>

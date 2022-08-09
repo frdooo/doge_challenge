@@ -24,15 +24,29 @@
         .social {
             display: flex;
             align-items: center;
+            justify-self: center;
             margin-top: 27.79px;
-            .icon {
+            .wechat {
+                flex: 0.5;
+                height: 15px;
                 margin-right: 11px;
+                cursor: pointer;
+            }
+            .linkedin {
+                flex: 0.5;
+                height: 15px;
                 cursor: pointer;
             }
             @include mobile {
                 margin-top: 10px;
 
-                .icon {
+                .wechat {
+                    flex: 0.5;
+                    height: 25px;
+                    margin-right: 35px;
+                }
+                .linkedin {
+                    flex: 0.5;
                     height: 25px;
                 }
             }

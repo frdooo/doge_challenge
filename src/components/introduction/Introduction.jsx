@@ -12,6 +12,7 @@ function Introduction() {
 		return (
 			<div>
 				<img className="thumbnail" src="assets/videothumbnail.png" alt="" />
+				<img className="thumbnailMobile" src="assets/img3.jpg" alt="" />
 				<div className="icon" onClick={handlePlay}>
 					<img src="assets/png/playbutton.png" alt="" />
 				</div>

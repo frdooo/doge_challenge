@@ -16,17 +16,17 @@ export default function Intro() {
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse tenetur soluta magni
 							consequuntur unde iusto! Aliquam, perspiciatis quasi repudiandae pariatur
 						</p>
-						<div className="scroll">
-							<a href="#featured">
-								<span>scroll</span>
-								<img src="assets/png/arrowdown.png" alt="" />
-							</a>
-						</div>
 					</div>
 				</div>
 				<div className="right">
 					<img src="assets/bigdoge.png" alt="" />
 				</div>
+			</div>
+			<div className="scroll">
+				<a href="#featured">
+					<span>scroll</span>
+					<img src="assets/png/arrowdown.png" alt="" />
+				</a>
 			</div>
 		</div>
 	);

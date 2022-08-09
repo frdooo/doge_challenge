@@ -8,8 +8,9 @@ function Services() {
 
 			<div className="wrapper">
 				<div className="section">
+					<img src="assets/png/service1.png" alt="" />
+
 					<div className="title">
-						<img src="assets/png/service1.png" alt="" />
 						<h3>Lorem ipsum dolor sit amet co</h3>
 					</div>
 
@@ -19,8 +20,9 @@ function Services() {
 					</p>
 				</div>
 				<div className="section">
+					<img src="assets/png/service2.png" alt="" />
+
 					<div className="title">
-						<img src="assets/png/service2.png" alt="" />
 						<h3>Lorem ipsum dolor sit amet co</h3>
 					</div>
 
@@ -30,8 +32,9 @@ function Services() {
 					</p>
 				</div>
 				<div className="section">
+					<img src="assets/png/service3.png" alt="" />
+
 					<div className="title">
-						<img src="assets/png/service3.png" alt="" />
 						<h3>Lorem ipsum dolor sit amet co</h3>
 					</div>
 

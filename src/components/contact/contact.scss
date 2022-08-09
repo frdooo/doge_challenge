@@ -2,13 +2,43 @@
 
 .contact {
     background-color: #ffffff;
-    width: 100%;
-    height: calc(100vh + 270px);
+    height: calc(100vh + 350px);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    @include tablet {
+        height: 100vh;
+    }
 
+    .border {
+        top: 91px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid rgba(169, 165, 197, 0.5);
+        @include mobile {
+            top: 248px;
+        }
+    }
+
+    .border1 {
+        @include desktop {
+            display: none;
+        }
+        @include tablet {
+            display: none;
+        }
+        @include mobile {
+            bottom: -0px;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid rgba(169, 165, 197, 0.5);
+        }
+    }
     .trust {
         position: absolute;
         top: 20px;
@@ -19,6 +49,9 @@
 
         @include mobile {
             flex-direction: column;
+        }
+        @include tablet {
+            left: 20px;
         }
 
         .left {
@@ -31,7 +64,7 @@
             color: #ba723d;
             @include mobile {
                 margin-right: 0;
-                margin-bottom: 10px;
+                margin-bottom: 32px;
             }
         }
         .right {
@@ -66,6 +99,10 @@
             top: 280px;
             left: 20px;
         }
+        @include tablet {
+            top: 150px;
+            left: 20px;
+        }
     }
 
     .line {
@@ -80,6 +117,10 @@
             left: 20px;
             width: 25px;
         }
+        @include tablet {
+            top: 195px;
+            left: 20px;
+        }
     }
 
     span {
@@ -93,14 +134,22 @@
     }
 
     .wrapper {
-        margin-top: 160px;
+        margin-top: 195px;
         position: relative;
         margin-left: 140px;
         display: flex;
         flex-direction: column;
+        @include tablet {
+            margin-top: 0;
+            margin-left: 15px;
+        }
         @include mobile {
-            margin-top: 470px;
-            margin-left: 20px;
+            margin-top: 630px;
+            margin-left: 0;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 350px;
         }
         .top {
             margin-bottom: 24px;
@@ -132,6 +181,11 @@
                 flex-direction: column;
                 margin-right: 22px;
                 flex: 1;
+                @include mobile {
+                    justify-content: center;
+                    align-content: center;
+                    margin-right: 0px;
+                }
                 input {
                     width: 418px;
                     height: 39px;
@@ -140,6 +194,9 @@
                     border: 1px solid rgba(169, 165, 197, 0.5);
                     margin-bottom: 24px;
                     @include mobile {
+                        width: 330px;
+                    }
+                    @include tablet {
                         width: 300px;
                     }
                 }
@@ -154,6 +211,10 @@
                     left: 405px;
                     width: 20px;
                     height: 20px;
+                    @include tablet {
+                        left: 290px;
+                        top: 316px;
+                    }
                 }
             }
             .right {
@@ -162,7 +223,7 @@
                 flex: 1;
                 position: relative;
                 @include mobile {
-                    margin-right: 20px;
+                    margin-right: 0px;
                 }
                 input {
                     width: 418px;
@@ -172,6 +233,9 @@
                     border: 1px solid rgba(169, 165, 197, 0.5);
                     margin-bottom: 29px;
                     @include mobile {
+                        width: 330px;
+                    }
+                    @include tablet {
                         width: 300px;
                     }
                 }
@@ -192,6 +256,9 @@
                     position: absolute;
                     width: 20px;
                     height: 20px;
+                    @include tablet {
+                        right: 80px;
+                    }
                 }
             }
 
@@ -217,7 +284,10 @@
                 border: 1px solid rgba(169, 165, 197, 0.5);
                 margin-bottom: 24px;
                 @include mobile {
-                    width: 317px;
+                    width: 350px;
+                }
+                @include tablet {
+                    width: 315px;
                 }
             }
         }
@@ -225,14 +295,18 @@
             width: 100%;
             height: 100%;
             margin-top: 10px;
+
             .textComment {
                 width: 895px;
                 height: 169px;
                 background-color: #f4f4f4;
                 border: 1px solid rgba(169, 165, 197, 0.5);
                 @include mobile {
-                    width: 317px;
-                    margin-left: 10px;
+                    width: 340px;
+                    margin-left: 0px;
+                }
+                @include tablet {
+                    width: 650px;
                 }
             }
         }
@@ -260,9 +334,10 @@
             justify-content: center;
             border-radius: 5px;
             @include mobile {
-                width: 250px;
+                width: 100%;
                 height: 30px;
                 margin-top: 20px;
+                margin-left: -5px;
             }
 
             &.loading {

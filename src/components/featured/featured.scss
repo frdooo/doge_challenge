@@ -2,29 +2,16 @@
 
 .featured {
     background: linear-gradient(180deg, #ffe5d0 0%, #ffecdd 100%);
-    height: calc(100vh + 400px);
+    height: calc(100vh + 475px);
     position: relative;
     z-index: 99;
 
     .container {
         width: 100%;
-        padding-left: 70px;
+        margin-left: 70px;
         margin-top: 40px;
         @include mobile {
-            padding: 0px 40px;
-        }
-
-        .title {
-            font-family: "Merriweather";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 80px;
-            text-transform: uppercase;
-            @include mobile {
-                font-size: 30px;
-                line-height: 90px;
-                color: #0d1a20;
-            }
+            margin-left: 16px;
         }
 
         .cntitle {
@@ -42,6 +29,20 @@
                 font-size: 15px;
                 line-height: 32px;
                 color: #0d1a20;
+            }
+        }
+
+        .title {
+            font-family: "Merriweather";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 80px;
+            text-transform: uppercase;
+            @include mobile {
+                font-size: 30px;
+                line-height: 90px;
+                color: #0d1a20;
+                margin-top: 10px;
             }
         }
 
@@ -74,7 +75,7 @@
             }
         }
         .slider {
-            margin-top: 50px;
+            margin-top: 18px;
             width: max-content;
             display: flex;
             align-items: center;
@@ -89,14 +90,27 @@
             }
 
             .slide {
-                width: 300px;
                 display: flex;
                 flex-direction: column;
                 position: relative;
                 margin-right: 20px;
 
-                img {
-                    width: 300px;
+                @include mobile {
+                    justify-content: center;
+
+                    margin-right: 0;
+                    margin-left: 0;
+                    width: 345px;
+                }
+
+                .image {
+                    width: 419px;
+                    height: 336px;
+                    @include mobile {
+                        margin-top: 32px;
+                        max-width: 330px;
+                        height: 225px;
+                    }
                 }
 
                 .wrapper {
@@ -185,11 +199,15 @@
             height: 400px;
             z-index: 999;
             position: absolute;
-            right: 10px;
+            right: 0;
             top: 180px;
             background: linear-gradient(269.79deg, #ffeadb 0.16%, rgba(255, 234, 219, 0) 94.51%);
             @include mobile {
                 display: none;
+            }
+            @include tablet {
+                height: 600px;
+                top: 215px;
             }
 
             img {
@@ -208,6 +226,11 @@
         position: relative;
 
         @include desktop {
+            .mobile-table {
+                display: none;
+            }
+        }
+        @include tablet {
             .mobile-table {
                 display: none;
             }
@@ -299,6 +322,7 @@
             @include mobile {
                 display: none;
             }
+
             th,
             td {
                 padding: 12px 32px;

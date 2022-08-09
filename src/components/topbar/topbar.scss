@@ -35,6 +35,9 @@
             @include mobile {
                 display: none;
             }
+            @include tablet {
+                display: none;
+            }
             .link {
                 padding-right: 40px;
                 font-weight: 500;
@@ -57,6 +60,9 @@
             margin-right: 20px;
             @include desktop {
                 display: none;
+            }
+            @include tablet {
+                margin-right: 20px;
             }
         }
 

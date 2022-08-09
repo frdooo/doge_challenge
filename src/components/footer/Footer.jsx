@@ -19,8 +19,8 @@ function Footer() {
 					</div>
 				</div>
 				<div className="social">
-					<img className="icon" src="assets/svg/wechatsmall.svg" alt="" />
-					<img className="icon" src="assets/svg/linkedinsmall.svg" alt="" />
+					<img className="wechat" src="assets/svg/wechatsmall.svg" alt="" />
+					<img className="linkedin" src="assets/svg/linkedinsmall.svg" alt="" />
 				</div>
 			</div>
 			<div className="bottom">

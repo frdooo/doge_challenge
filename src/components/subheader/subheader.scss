@@ -25,6 +25,14 @@
 
         .menu {
             display: flex;
+            @include mobile {
+                align-content: space-between;
+            }
+            .contactus {
+                @include mobile {
+                    display: none;
+                }
+            }
 
             .line {
                 position: absolute;
@@ -40,8 +48,8 @@
                     width: 95px;
                     @include mobile {
                         bottom: 70px;
-                        left: 110px;
-                        width: 72px;
+                        left: 33%;
+                        width: 33%;
                     }
                 }
                 &.line2 {
@@ -51,8 +59,8 @@
                     width: 78px;
                     @include mobile {
                         bottom: 70px;
-                        left: 203px;
-                        width: 60px;
+                        left: 67%;
+                        width: 33%;
                     }
                 }
                 &.line3 {
@@ -62,14 +70,14 @@
                     width: 85px;
                     @include mobile {
                         bottom: 70px;
-                        left: 287px;
-                        width: 70px;
+                        left: -10%;
+                        width: 33%;
                     }
                 }
                 @include mobile {
                     bottom: 70px;
-                    left: 8px;
-                    width: 80px;
+                    left: 0;
+                    width: 33%;
                 }
             }
             a {

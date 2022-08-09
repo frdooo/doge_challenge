@@ -90,6 +90,9 @@ const Contact = () => {
 						<img src="assets/client6.png" alt="" />
 					</div>
 				</div>
+				<span className="border" />
+				<span className="border1" />
+
 				<h1>Contact us</h1>
 				<span className="line" />
 				<div className="wrapper">
@@ -137,6 +140,7 @@ const Contact = () => {
 							</div>
 						</div>
 						<span>* Write us a comment</span>
+
 						<div className="comment">
 							<input className="textComment" type="text" />
 						</div>

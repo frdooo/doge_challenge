@@ -25,7 +25,15 @@ export default function Featured() {
 				<h3 className="subtitle">Crafted with passion</h3>
 				<div className="slider" ref={slideRef}>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("/assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('1')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '1' ? (
@@ -41,7 +49,15 @@ export default function Featured() {
 						</div>
 					</div>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('2')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '2' ? (
@@ -57,7 +73,15 @@ export default function Featured() {
 						</div>
 					</div>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("/assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('3')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '3' ? (
@@ -73,7 +97,15 @@ export default function Featured() {
 						</div>
 					</div>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("/assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('4')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '4' ? (
@@ -89,7 +121,15 @@ export default function Featured() {
 						</div>
 					</div>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("/assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('5')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '5' ? (
@@ -105,7 +145,15 @@ export default function Featured() {
 						</div>
 					</div>
 					<div className="slide">
-						<img src="assets/img3.jpg" alt="" />
+						<div
+							className="image"
+							style={{
+								background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url("/assets/img3.jpg")`,
+								backgroundPosition: 'center',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat'
+							}}
+						/>
 						<div className="wrapper">
 							<div onMouseOver={() => setHover('6')} onMouseOut={() => setHover('0')} className="arrow">
 								{hover === '6' ? (

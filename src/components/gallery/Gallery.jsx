@@ -89,7 +89,19 @@ export default function Gallery() {
 					{!images && isLoading ? (
 						<div className="loading-spinner" />
 					) : (
-						images.map((image, index) => <img key={index} className="image" src={image.url} alt="" />)
+						images.map((image, index) => (
+							<div
+								key={index}
+								className="image"
+								style={{
+									background: `linear-gradient(0deg, rgba(218, 130, 111, 0.3), rgba(218, 130, 111, 0.3)), url(${image.url})`,
+
+									backgroundPosition: 'center',
+									backgroundSize: 'cover',
+									backgroundRepeat: 'no-repeat'
+								}}
+							/>
+						))
 					)}
 				</div>
 				{isLoading ? (
