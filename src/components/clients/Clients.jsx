@@ -5,27 +5,48 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const testimonials = [
 	{
 		id: 'test-1',
-		quote: 'Doge Agency completely reshaped our brand presence. The attention to typography, micro-interactions, and visual storytelling set a new benchmark for our product launches.',
-		name: 'Elena Rostova',
-		role: 'Design Director',
-		company: 'Vanguard Studios',
-		avatar: '/assets/client1.png'
+		quote: 'Doge Agency delivered beyond our wildest zoomies! The site is so snappy that even my human couldn’t look away from the screen. 14/10 would bark at this interactive design again.',
+		name: 'Barnaby Von Woof',
+		species: '🐕 Golden Retriever',
+		role: 'Chief Happiness Officer & Tennis Ball QA',
+		company: 'Fetch & Co.',
+		avatar: '/assets/img1.jpg'
 	},
 	{
 		id: 'test-2',
-		quote: 'Their frontend execution was flawless. They took complex design prototypes and brought them to life with silky smooth performance across desktop and mobile devices.',
-		name: 'Marcus Vance',
-		role: 'Head of Product',
-		company: 'Aether Labs',
-		avatar: '/assets/client2.png'
+		quote: 'I usually knock things off the desk out of spite, but this agency’s UX design left me completely mesmerized. Zero friction, impeccable taste, and purr-worthy responsiveness.',
+		name: 'Lord Fluffington III',
+		species: '🐈 Persian Cat',
+		role: 'Senior Creative Critic & Nap Architect',
+		company: 'Purrfect Pixel Labs',
+		avatar: '/assets/img2.jpg'
 	},
 	{
 		id: 'test-3',
-		quote: 'The team brings real craft and originality. Our engagement metrics jumped significantly after deploying the interactive showcase they architected.',
-		name: 'Sophia Lindqvist',
-		role: 'Creative Lead',
-		company: 'Nordic Wave',
-		avatar: '/assets/client3.png'
+		quote: 'Everything just quacked into place! Their frontend animations glide like freshly preened feathers across calm waters. Truly majestic web craftsmanship.',
+		name: 'Professor Quackers',
+		species: '🦆 Executive Mallard',
+		role: 'VP of Streamlining & Splash Strategy',
+		company: 'Pond & Ripple Ventures',
+		avatar: '/assets/parallax/duckpeluche.png'
+	},
+	{
+		id: 'test-4',
+		quote: 'Maximum chill vibes. No stressful bugs, no heated arguments. Doge Agency handled our entire brand rollout with supreme composure and effortless flow.',
+		name: 'Capy "Chill" Rodriguez',
+		species: '🦫 Capybara',
+		role: 'Chief Zen Officer',
+		company: 'Zen Herbivores Ltd.',
+		avatar: '/assets/img3.jpg'
+	},
+	{
+		id: 'test-5',
+		quote: 'Whoo knew web design could be this sharp? I inspected the source code at 3 AM with 360-degree vision and couldn’t spot a single bug. Truly wise engineering.',
+		name: 'Sir Reginald Hoot',
+		species: '🦉 Barred Owl',
+		role: 'Night Shift Tech Lead & Code Inspector',
+		company: 'Nocturnal Intelligence',
+		avatar: '/assets/bigdoge.png'
 	}
 ];
 
@@ -73,9 +94,23 @@ export default function Clients() {
 										<p className="quote-text">"{item.quote}"</p>
 
 										<div className="author-row">
-											<img src={item.avatar} alt={item.name} className="author-avatar" />
+											<img
+												src={item.avatar}
+												alt={item.name}
+												className="author-avatar"
+												onError={(e) => {
+													e.currentTarget.src = '/assets/bigdoge.png';
+												}}
+											/>
 											<div className="author-meta">
-												<span className="author-name">{item.name}</span>
+												<div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+													<span className="author-name">{item.name}</span>
+													{item.species && (
+														<span style={{ fontSize: '11px', fontWeight: 700, backgroundColor: 'rgba(186, 114, 61, 0.14)', color: '#ba723d', padding: '2px 8px', borderRadius: '12px', letterSpacing: '0.02em' }}>
+															{item.species}
+														</span>
+													)}
+												</div>
 												<span className="author-title">
 													{item.role}, <strong>{item.company}</strong>
 												</span>

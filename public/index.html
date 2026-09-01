@@ -4,15 +4,91 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="theme-color" content="#ba723d" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/bigdoge.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;700;900&display=swap" rel="stylesheet"> 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
+    <!-- SEO & Metadata -->
     <title>Doge Creative Agency & Gallery</title>
     <meta name="description" content="An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services." />
+    <meta name="keywords" content="creative agency, web design, frontend engineering, parallax animation, animal photography, doge studio, UI UX design, react developer" />
+    <meta name="author" content="Doge Agency" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Doge Creative Agency" />
     <meta property="og:title" content="Doge Creative Agency & Gallery" />
     <meta property="og:description" content="An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services." />
+    <meta property="og:image" content="%PUBLIC_URL%/assets/bigdoge.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Doge Creative Agency & Gallery" />
+    <meta name="twitter:description" content="An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/assets/bigdoge.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Doge Creative Agency",
+      "image": "/assets/bigdoge.png",
+      "description": "An interactive digital agency crafting memorable brand identities, responsive web applications, and editorial animal photography.",
+      "priceRange": "$$",
+      "telephone": "+1-800-555-DOGE",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://github.com",
+        "https://linkedin.com",
+        "https://twitter.com"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Creative & Engineering Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Creative Frontend & Interaction"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Brand Identity & Design Systems"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Studio & Pet Photography"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Product Architecture"
+            }
+          }
+        ]
+      }
+    }
+    </script>
     <script>
       // Gracefully handle external browser extension exceptions (e.g. MetaMask injection in sandboxed iframe)
       (function() {

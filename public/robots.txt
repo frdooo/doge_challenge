@@ -1,0 +1,6 @@
+# Robots.txt for Doge Creative Agency & Gallery
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: /sitemap.xml

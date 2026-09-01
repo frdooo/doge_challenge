@@ -1,0 +1,21 @@
+{
+  "short_name": "DogeAgency",
+  "name": "Doge Creative Agency & Gallery",
+  "description": "An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services.",
+  "icons": [
+    {
+      "src": "/assets/bigdoge.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/bigdoge.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fdebdd",
+  "theme_color": "#ba723d",
+  "display": "standalone"
+}
