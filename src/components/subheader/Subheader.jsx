@@ -1,71 +1,75 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './subheader.scss';
+import { ArrowRight } from 'lucide-react';
 
-function Subheader() {
-	const [ clicked, setClicked ] = useState('intro');
+const navItems = [
+	{ id: 'introduction', label: '01. Overview' },
+	{ id: 'featured', label: '02. Featured Works' },
+	{ id: 'services', label: '03. Services' },
+	{ id: 'gallery', label: '04. Animal Gallery' },
+	{ id: 'client', label: '05. Testimonials' },
+	{ id: 'contact', label: '06. Contact' }
+];
 
-	const handleClick = (e) => {
-		setClicked(e);
+export default function Subheader() {
+	const [activeSection, setActiveSection] = useState('introduction');
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollPosition = window.scrollY + 200;
+
+			for (let i = navItems.length - 1; i >= 0; i--) {
+				const item = navItems[i];
+				const elem = document.getElementById(item.id);
+				if (elem && elem.offsetTop <= scrollPosition) {
+					setActiveSection(item.id);
+					break;
+				}
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	const scrollTo = (id) => {
+		const elem = document.getElementById(id);
+		if (elem) {
+			elem.scrollIntoView({ behavior: 'smooth' });
+			setActiveSection(id);
+		}
 	};
+
 	return (
-		<div className="subheader">
+		<nav className="subheader" aria-label="Page Sections Sub-navigation">
 			<div className="wrapper">
-				<div className="menu">
-					<a href="#introduction">
-						{clicked === 'intro' ? (
-							<div>
-								<span className="active" onClick={() => handleClick('intro')}>
-									introduction
-								</span>
-								<div className="line" />
-							</div>
-						) : (
-							<span onClick={() => handleClick('intro')}>introduction</span>
-						)}
-					</a>
-					<a href="#services">
-						{clicked === 'service' ? (
-							<div>
-								<span className="active" onClick={() => handleClick('service')}>
-									Our Services
-								</span>
-								<div className="line line1" />
-							</div>
-						) : (
-							<span onClick={() => handleClick('service')}>Our Services</span>
-						)}
-					</a>
-					<a href="#client">
-						{clicked === 'client' ? (
-							<div>
-								<span className="active" onClick={() => handleClick('client')}>
-									Our client
-								</span>
-								<div className="line line2" />
-							</div>
-						) : (
-							<span onClick={() => handleClick('client')}>Our Client</span>
-						)}
-					</a>
-					<a className="contactus" href="#contact">
-						{clicked === 'contact' ? (
-							<div>
-								<span className="active" onClick={() => handleClick('contact')}>
-									contact us
-								</span>
-								<div className="line line3" />
-							</div>
-						) : (
-							<span onClick={() => handleClick('contact')}>contact us</span>
-						)}
-					</a>
+				<div className="menu-scroll">
+					<div className="menu-list">
+						{navItems.map((item) => (
+							<button
+								key={item.id}
+								type="button"
+								className={`nav-tab ${activeSection === item.id ? 'active' : ''}`}
+								onClick={() => scrollTo(item.id)}
+							>
+								<span>{item.label}</span>
+							</button>
+						))}
+					</div>
 				</div>
-				<div className="button">
-					<span>Contact us</span>
+
+				<div className="action-wrap">
+					<button
+						type="button"
+						className="cta-button"
+						onClick={() => scrollTo('contact')}
+					>
+						<span>Start a Project</span>
+						<ArrowRight size={16} />
+					</button>
 				</div>
 			</div>
-		</div>
+		</nav>
 	);
 }
-
-export default Subheader;

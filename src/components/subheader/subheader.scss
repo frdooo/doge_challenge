@@ -1,129 +1,136 @@
 @import "../../globall.scss";
 
 .subheader {
-    background-color: #fff;
-    height: 66px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    z-index: 99;
-    position: relative;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ebd7cb;
+    border-top: 1px solid rgba(186, 114, 61, 0.1);
+    position: sticky;
+    top: 72px;
+    z-index: 900;
+    box-shadow: 0 2px 12px rgba(13, 26, 32, 0.04);
+    transition: top 0.3s ease;
+
     @include mobile {
-        height: 150px;
+        top: 60px;
     }
 
     .wrapper {
-        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 0px 180px;
+
         @include mobile {
-            margin: 0;
-            flex-direction: column;
+            padding: 0 12px;
+            height: 52px;
         }
 
-        .menu {
-            display: flex;
-            @include mobile {
-                align-content: space-between;
-            }
-            .contactus {
-                @include mobile {
-                    display: none;
-                }
-            }
-
-            .line {
-                position: absolute;
-                bottom: 0;
-                left: 180px;
-                width: 93px;
-                height: 2px;
-                background-color: #ba723d;
-                &.line1 {
-                    position: absolute;
-                    bottom: 0;
-                    left: 295px;
-                    width: 95px;
-                    @include mobile {
-                        bottom: 70px;
-                        left: 33%;
-                        width: 33%;
-                    }
-                }
-                &.line2 {
-                    position: absolute;
-                    bottom: 0;
-                    left: 412px;
-                    width: 78px;
-                    @include mobile {
-                        bottom: 70px;
-                        left: 67%;
-                        width: 33%;
-                    }
-                }
-                &.line3 {
-                    position: absolute;
-                    bottom: 0;
-                    left: 513px;
-                    width: 85px;
-                    @include mobile {
-                        bottom: 70px;
-                        left: -10%;
-                        width: 33%;
-                    }
-                }
-                @include mobile {
-                    bottom: 70px;
-                    left: 0;
-                    width: 33%;
-                }
-            }
-            a {
-                text-decoration: none;
-            }
-            span {
-                margin-right: 24px;
-                font-weight: 800;
-                font-size: 13px;
-                line-height: 18px;
-                text-transform: uppercase;
-                color: #f8ccab;
-                &.active {
-                    color: #ba723d;
-                }
-                @include mobile {
-                    font-size: 10px;
-                    line-height: 18px;
-                }
-            }
-        }
-
-        .button {
+        .menu-scroll {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 137px;
-            height: 44px;
-            background: #ba723d;
-            border-radius: 5px;
-            &:hover {
-                background-color: #e19e6c;
-                &:active {
-                    background-color: #a95c24;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .menu-list {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                white-space: nowrap;
+
+                .nav-tab {
+                    background: transparent;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    position: relative;
+                    transition: all 0.2s ease;
+
+                    span {
+                        font-size: 13px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 0.04em;
+                        color: #8c7b72;
+                        transition: color 0.2s ease;
+                    }
+
+                    &:hover {
+                        background: #fdf3eb;
+                        span {
+                            color: #ba723d;
+                        }
+                    }
+
+                    &.active {
+                        background: #fcf1e8;
+                        span {
+                            color: #ba723d;
+                            font-weight: 800;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -12px;
+                            left: 16px;
+                            right: 16px;
+                            height: 3px;
+                            background: #ba723d;
+                            border-radius: 3px 3px 0 0;
+
+                            @include mobile {
+                                bottom: -8px;
+                            }
+                        }
+                    }
+
+                    @include mobile {
+                        padding: 6px 10px;
+                        span {
+                            font-size: 11px;
+                        }
+                    }
                 }
             }
+        }
+
+        .action-wrap {
+            display: flex;
+            align-items: center;
+            margin-left: 16px;
+
             @include mobile {
-                width: 344px;
-                height: 44px;
-                margin-top: 50px;
+                display: none;
             }
-            span {
-                font-weight: 800;
-                font-size: 16px;
-                line-height: 24px;
+
+            .cta-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: #ba723d;
                 color: #ffffff;
+                border: none;
+                padding: 8px 18px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 13px;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 8px rgba(186, 114, 61, 0.25);
+
+                &:hover {
+                    background: #a25c2b;
+                    transform: translateY(-1px);
+                }
             }
         }
     }

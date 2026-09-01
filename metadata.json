@@ -1,0 +1,6 @@
+{
+  "name": "Doge Creative Agency & Gallery",
+  "description": "An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

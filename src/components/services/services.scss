@@ -1,110 +1,291 @@
 @import "../../globall.scss";
 
 .services {
-    width: 100%;
-    height: calc(100vh + 150px);
-    background-color: #fff;
+    background-color: #ffffff;
+    padding: 90px 24px;
+    border-bottom: 1px solid #ebd7cb;
     position: relative;
+
     @include mobile {
-        height: calc(100vh + 350px);
+        padding: 50px 16px;
     }
 
-    h1 {
-        font-weight: 800;
-        font-size: 32px;
-        line-height: 32px;
-        align-items: center;
-        color: #ba723d;
-        margin-left: 235px;
-        margin-top: 165px;
-        @include mobile {
-            margin-top: 60px;
-            margin-left: 20px;
-        }
-        @include tablet {
-            margin-top: 150px;
-            margin-left: 20px;
-        }
-    }
-    .line {
-        position: absolute;
-        top: 205px;
-        left: 235px;
-        width: 32px;
-        height: 2px;
-        background-color: #ba723d;
-        @include mobile {
-            top: 100px;
-            left: 20px;
-        }
-        @include tablet {
-            top: 195px;
-            left: 20px;
-        }
-    }
+    .section-container {
+        max-width: 1240px;
+        margin: 0 auto;
 
-    .wrapper {
-        margin-top: 60px;
-        margin-left: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        -webkit-flex-wrap: wrap;
-        width: 1200px;
-        @include mobile {
-            flex-direction: column;
-            width: 100%;
-            margin-left: 0;
-        }
-        @include tablet {
-            flex-direction: column;
-            width: 100%;
-            margin-left: 0;
-        }
-        .section {
-            display: flex;
-            flex-direction: column;
-            width: 416px;
-            height: 100%;
-            margin-top: 48px;
-            @include mobile {
-                width: 100%;
+        .section-header {
+            margin-bottom: 50px;
+
+            .eyebrow {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 10px;
+
+                .dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #ba723d;
+                }
+
+                span {
+                    font-size: 13px;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    color: #ba723d;
+                }
             }
 
-            .title {
+            .section-title {
+                font-size: 38px;
+                font-weight: 800;
+                color: #0d1a20;
+                margin: 0 0 16px 0;
+
+                @include mobile {
+                    font-size: 28px;
+                }
+            }
+
+            .accent-bar {
+                width: 48px;
+                height: 3px;
+                background: #ba723d;
+                border-radius: 2px;
+                margin-bottom: 16px;
+            }
+
+            .section-intro {
+                font-size: 16px;
+                color: #63534b;
+                max-width: 600px;
+                margin: 0;
+                line-height: 1.6;
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            margin-bottom: 50px;
+
+            @include mobile {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            @include tablet {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                background: #fdf6f0;
+                border: 1px solid rgba(186, 114, 61, 0.18);
+                border-radius: 16px;
+                padding: 36px 32px;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                 position: relative;
 
-                h3 {
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 16px;
-                    line-height: 22px;
+                @include mobile {
+                    padding: 24px 20px;
+                }
+
+                .card-top {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+
+                    .icon-badge {
+                        width: 56px;
+                        height: 56px;
+                        background: #ffffff;
+                        border: 1px solid rgba(186, 114, 61, 0.2);
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 4px 12px rgba(186, 114, 61, 0.1);
+                        transition: transform 0.3s ease;
+
+                        img {
+                            width: 32px;
+                            height: 32px;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .service-number {
+                        font-size: 16px;
+                        font-weight: 800;
+                        color: #c4a997;
+                        letter-spacing: 0.05em;
+                    }
+                }
+
+                .tagline {
+                    font-size: 12px;
+                    font-weight: 800;
                     text-transform: uppercase;
+                    letter-spacing: 0.08em;
                     color: #ba723d;
-                    margin-bottom: 14px;
-                    margin-left: 89px;
+                    margin-bottom: 8px;
+                }
+
+                .service-title {
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: #0d1a20;
+                    margin: 0 0 12px 0;
+                    line-height: 1.3;
+
                     @include mobile {
-                        width: 250px;
+                        font-size: 19px;
+                    }
+                }
+
+                .service-desc {
+                    font-size: 15px;
+                    line-height: 1.65;
+                    color: #55443b;
+                    margin: 0 0 24px 0;
+                }
+
+                .highlights-list {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
+                    margin-bottom: 28px;
+                    padding-top: 18px;
+                    border-top: 1px solid rgba(186, 114, 61, 0.15);
+
+                    @include mobile {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .highlight-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        .check-icon {
+                            color: #ba723d;
+                            flex-shrink: 0;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            font-weight: 600;
+                            color: #3b2d26;
+                        }
+                    }
+                }
+
+                .service-cta {
+                    margin-top: auto;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: transparent;
+                    border: none;
+                    color: #ba723d;
+                    font-size: 14px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    padding: 0;
+                    transition: gap 0.2s ease, color 0.2s ease;
+
+                    &:hover {
+                        color: #8f4b18;
+                        gap: 12px;
+                    }
+                }
+
+                &:hover {
+                    background: #ffffff;
+                    transform: translateY(-4px);
+                    box-shadow: 0 16px 36px rgba(186, 114, 61, 0.12);
+                    border-color: rgba(186, 114, 61, 0.35);
+
+                    .icon-badge {
+                        transform: scale(1.08) rotate(4deg);
+                        background: #fdf3eb;
                     }
                 }
             }
-            img {
-                position: absolute;
-                width: 30px;
+        }
+
+        .custom-banner {
+            background: linear-gradient(135deg, #ba723d 0%, #a25c2b 100%);
+            border-radius: 16px;
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            box-shadow: 0 12px 32px rgba(186, 114, 61, 0.25);
+
+            @include mobile {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px 20px;
+            }
+
+            .banner-content {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
                 @include mobile {
-                    width: 47px;
-                    left: 15px;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+
+                .banner-icon {
+                    color: #ffe5d0;
+                    flex-shrink: 0;
+                }
+
+                h4 {
+                    font-size: 18px;
+                    font-weight: 800;
+                    color: #ffffff;
+                    margin: 0 0 4px 0;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #fdebdd;
+                    margin: 0;
                 }
             }
 
-            p {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 15px;
-                line-height: 26px;
-                color: #0d1a20;
-                padding-left: 89px;
+            .banner-btn {
+                background: #ffffff;
+                color: #ba723d;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-weight: 800;
+                font-size: 14px;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: all 0.2s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+                &:hover {
+                    background: #fff4ec;
+                    transform: translateY(-1px);
+                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+                }
+
+                @include mobile {
+                    width: 100%;
+                }
             }
         }
     }

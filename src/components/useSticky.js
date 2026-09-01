@@ -1,34 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useSticky = () => {
+const useSticky = (threshold = 100) => {
 	const stickyRef = useRef(null);
-	const [ sticky, setSticky ] = useState(false);
-	const [ offset, setOffset ] = useState(0);
+	const [sticky, setSticky] = useState(false);
 
-	useEffect(
-		() => {
-			if (!stickyRef.current) {
-				return;
-			}
-			setOffset(stickyRef.current.offsetTop);
-		},
-		[ stickyRef, setOffset ]
-	);
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!stickyRef.current) return;
+			const scrollPos = window.scrollY || document.documentElement.scrollTop;
+			setSticky(scrollPos > threshold);
+		};
 
-	useEffect(
-		() => {
-			const handleScroll = () => {
-				if (!stickyRef.current) {
-					return;
-				}
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [threshold]);
 
-				setSticky(window.scrollY > offset);
-			};
-			window.addEventListener('scroll', handleScroll);
-			return () => window.removeEventListener('scroll', handleScroll);
-		},
-		[ setSticky, stickyRef, offset ]
-	);
 	return { stickyRef, sticky };
 };
 

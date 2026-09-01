@@ -1,165 +1,408 @@
 @import "../../globall.scss";
 
 .intro {
-    height: calc(100vh + 250px);
+    min-height: 90vh;
     position: relative;
-    background: linear-gradient(180deg, #f8ccab 0%, #fdebdd 100%);
-    z-index: 5;
-    @include tablet {
-        height: 800px;
+    background: radial-gradient(circle at 75% 30%, #fff0e2 0%, #fdebdd 70%, #f8ccab 100%);
+    padding: 60px 24px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include mobile {
+        padding: 40px 16px 80px;
+        min-height: auto;
     }
 
-    .header {
-        width: 100%;
+    .floating-toy {
         position: absolute;
-        top: 0;
-        left: 0;
+        pointer-events: none;
+        transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.3, 1);
+        z-index: 2;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 12px 24px rgba(186, 114, 61, 0.25));
+        }
+
+        &.duck {
+            top: 12%;
+            right: 8%;
+            width: 110px;
+            @include mobile {
+                top: 5%;
+                right: 2%;
+                width: 65px;
+            }
+        }
+
+        &.chicken {
+            bottom: 22%;
+            left: 4%;
+            width: 100px;
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &.tennis {
+            top: 28%;
+            left: 8%;
+            width: 80px;
+            @include mobile {
+                top: 10%;
+                left: 3%;
+                width: 48px;
+            }
+        }
     }
 
-    .container {
-        margin-top: 80px;
+    .hero-container {
+        max-width: 1240px;
+        width: 100%;
+        margin: 0 auto;
         display: flex;
-        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+        z-index: 5;
 
         @include mobile {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        @include tablet {
-            margin-top: 150px;
-            justify-content: center;
+            flex-direction: column-reverse;
+            gap: 32px;
+            text-align: center;
         }
 
         .left {
-            flex: 0.5;
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+
             @include mobile {
-                flex: 0.3;
+                align-items: center;
             }
-            .wrapper {
-                margin-top: 150px;
-                padding-left: 70px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+
+            .badge-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: #ffffff;
+                border: 1px solid rgba(186, 114, 61, 0.25);
+                padding: 6px 14px;
+                border-radius: 9999px;
+                width: fit-content;
+                box-shadow: 0 2px 10px rgba(186, 114, 61, 0.1);
+                margin-bottom: 24px;
+
+                span {
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: #ba723d;
+                    letter-spacing: 0.02em;
+                }
+            }
+
+            .hero-title {
+                font-size: 64px;
+                line-height: 1.1;
+                font-weight: 800;
+                color: #0d1a20;
+                letter-spacing: -0.02em;
+                margin: 0 0 16px 0;
 
                 @include mobile {
-                    margin-top: 0;
-                    padding-left: 16px;
+                    font-size: 38px;
+                }
+                @include tablet {
+                    font-size: 48px;
                 }
 
-                h1 {
-                    font-style: normal;
-                    font-weight: 800;
-                    font-size: 64px;
-
-                    @include mobile {
-                        font-weight: 800;
-                        font-size: 32px;
-                        line-height: 44px;
-                        color: #0d1a20;
-                    }
-                    @include tablet {
-                        font-weight: 800;
-                        font-size: 32px;
-                        line-height: 44px;
-                        color: #0d1a20;
-                    }
+                .gradient-text {
+                    background: linear-gradient(135deg, #ba723d 0%, #ff7a45 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                 }
-                h2 {
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 42px;
+            }
 
-                    @include mobile {
-                        font-weight: 400;
-                        font-size: 24px;
-                        line-height: 33px;
+            .hero-subtitle {
+                font-size: 22px;
+                font-weight: 600;
+                color: #493931;
+                line-height: 1.4;
+                margin: 0 0 16px 0;
 
-                        /* identical to box height */
-
-                        color: #0d1a20;
-                    }
+                @include mobile {
+                    font-size: 18px;
                 }
-                p {
-                    font-style: normal;
-                    font-weight: 400;
+            }
+
+            .hero-description {
+                font-size: 16px;
+                line-height: 1.65;
+                color: #63534b;
+                margin: 0 0 32px 0;
+                max-width: 540px;
+
+                @include mobile {
                     font-size: 15px;
-                    @include mobile {
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 15px;
-                        line-height: 26px;
+                }
+            }
 
-                        /* or 173% */
+            .cta-group {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 40px;
 
-                        color: #0d1a20;
+                @include mobile {
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 320px;
+                }
+
+                .btn-primary {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    background: #ba723d;
+                    color: #ffffff;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    box-shadow: 0 4px 16px rgba(186, 114, 61, 0.35);
+                    transition: all 0.25s ease;
+
+                    &:hover {
+                        background: #a25c2b;
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 20px rgba(186, 114, 61, 0.45);
                     }
+
+                    @include mobile {
+                        width: 100%;
+                    }
+                }
+
+                .btn-pet {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    background: #ffffff;
+                    color: #ba723d;
+                    border: 2px solid #ba723d;
+                    padding: 12px 24px;
+                    border-radius: 10px;
+                    font-size: 15px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.25s ease;
+
+                    &:hover {
+                        background: #fff4ec;
+                        transform: scale(1.03);
+                    }
+
+                    &.petted {
+                        background: #ff7a45;
+                        color: #ffffff;
+                        border-color: #ff7a45;
+                    }
+
+                    .beating {
+                        animation: heartBeat 0.5s infinite alternate;
+                    }
+
+                    @include mobile {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .hero-stats {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                padding-top: 24px;
+                border-top: 1px solid rgba(186, 114, 61, 0.2);
+
+                @include mobile {
+                    gap: 16px;
+                }
+
+                .stat-item {
+                    display: flex;
+                    flex-direction: column;
+
+                    strong {
+                        font-size: 24px;
+                        font-weight: 800;
+                        color: #0d1a20;
+                        line-height: 1.1;
+
+                        @include mobile {
+                            font-size: 20px;
+                        }
+                    }
+
+                    span {
+                        font-size: 13px;
+                        color: #7d6b62;
+                        font-weight: 500;
+                    }
+                }
+
+                .stat-divider {
+                    width: 1px;
+                    height: 36px;
+                    background: rgba(186, 114, 61, 0.2);
                 }
             }
         }
 
         .right {
-            flex: 0.5;
-            @include mobile {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .doge-stage {
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-            img {
-                margin-left: 100px;
-                height: 80%;
-                @include mobile {
-                    margin-left: 0;
-                    align-content: center;
-                    justify-content: center;
-                    margin-top: 0px;
-                    height: 450px;
+                transition: transform 0.2s ease-out;
+
+                .doge-halo {
+                    position: absolute;
+                    width: 360px;
+                    height: 360px;
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(248, 204, 171, 0) 70%);
+                    z-index: 1;
+                    filter: blur(20px);
                 }
-                @include tablet {
-                    height: 450px;
-                    margin-left: 0;
-                    align-content: center;
-                    justify-content: center;
+
+                .doge-img {
+                    position: relative;
+                    z-index: 2;
+                    max-width: 440px;
+                    width: 100%;
+                    height: auto;
+                    cursor: pointer;
+                    filter: drop-shadow(0 20px 32px rgba(186, 114, 61, 0.25));
+                    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+                    &:hover {
+                        transform: scale(1.04) rotate(2deg);
+                    }
+
+                    &.bounce {
+                        animation: dogeBounce 0.6s ease;
+                    }
+
+                    @include mobile {
+                        max-width: 280px;
+                    }
+                }
+
+                .doge-bubble {
+                    position: absolute;
+                    top: -10px;
+                    right: -20px;
+                    background: #ffffff;
+                    padding: 8px 16px;
+                    border-radius: 16px;
+                    border-bottom-left-radius: 2px;
+                    box-shadow: 0 8px 24px rgba(13, 26, 32, 0.12);
+                    border: 1px solid rgba(186, 114, 61, 0.2);
+                    z-index: 10;
+                    animation: floatBubble 3s ease-in-out infinite;
+
+                    span {
+                        font-size: 13px;
+                        font-weight: 700;
+                        color: #ba723d;
+                        white-space: nowrap;
+                    }
+
+                    @include mobile {
+                        top: -20px;
+                        right: 0;
+                        padding: 6px 12px;
+                        span {
+                            font-size: 11px;
+                        }
+                    }
                 }
             }
         }
     }
-    .scroll {
+
+    .scroll-indicator {
+        position: absolute;
+        bottom: 24px;
         display: flex;
-        animation: scrollBlink 2s infinite;
-        margin-left: 69px;
-        margin-top: -220px;
-        @include mobile {
-            justify-content: center;
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 0;
-        }
-        @include tablet {
-            justify-content: center;
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 50px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        z-index: 5;
+        opacity: 0.85;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+            transform: translateY(2px);
         }
 
-        @keyframes scrollBlink {
-            100% {
-                opacity: 0;
-            }
+        .scroll-text {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #ba723d;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-            span {
-                display: flex;
-                align-items: center;
-                padding-bottom: 30px;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 15px;
-                transform: rotate(-90deg);
-            }
+
+        .scroll-icon-wrap {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid rgba(186, 114, 61, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ba723d;
+            animation: bounceY 2s infinite;
         }
     }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.3); }
+}
+
+@keyframes dogeBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1) rotate(-4deg); }
+}
+
+@keyframes floatBubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes bounceY {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(6px); }
+    60% { transform: translateY(3px); }
 }

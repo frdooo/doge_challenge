@@ -1,20 +1,10 @@
+@import "./globall.scss";
+
 .app {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     position: relative;
-
-    .sections {
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: none; // for firefox!
-        &::-webkit-scrollbar {
-            display: none;
-        } //for other browsers!
-
-        > * {
-            width: 100vw;
-            scroll-snap-align: start;
-        }
-    }
+    background-color: #fdebdd;
+    display: flex;
+    flex-direction: column;
 }
