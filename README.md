@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Doge Agency — Creative Studio Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive digital agency portfolio showcasing interactive animations, case studies carousel, showreel player, curated animal photography gallery, verified client testimonials, and studio inquiries.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Overview
 
-### `npm start`
+**Doge Agency** is a full-featured creative agency web application. It combines distinctive character branding with modern frontend engineering principles:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Single Sticky Header Navigation**: Sleek, blur-backed top navigation with active section detection, smooth scrolling, and mobile drawer.
+- **Interactive Hero Showcase**: Parallax visual layers featuring Doge character art, motion accents, and primary studio call-to-actions.
+- **Studio Showreel & Video Player**: Embedded interactive video player with custom controls, full-screen playback, and caption toggle.
+- **Selected Works & Case Studies**: Multi-slide project carousel with live tags, metrics, and case details.
+- **Capabilities & Services**: Service breakdown across creative direction, frontend engineering, 3D/character design, and interactive media.
+- **Animal & Pet Photography Gallery**: Categorized image gallery (All, Dogs, Cats, Wildlife, Birds) with high-resolution lightbox modal and local asset fallbacks.
+- **Verified Client Testimonials**: Client reviews from leading brands and design publications.
+- **Studio Inquiries & Contact Form**: Form validation, service type selector, budget range picker, and instant submission feedback.
+- **Dedicated About Page**: Origin timeline, team member cards, and design system philosophy.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Framework**: React 18 with TypeScript / JSX
+- **Routing**: React Router v6 (`BrowserRouter`, `Routes`, `Route`)
+- **Styling**: Modular SCSS with mixins, CSS variables, and fluid typography
+- **Icons**: [Lucide React](https://lucide.dev)
+- **Tooling**: Node.js, Webpack / CRA build pipeline, ESLint
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```text
+├── public/
+│   ├── assets/              # Logos, character illustrations, and vector icons
+│   └── index.html           # Root HTML entry point & extension error guards
+├── src/
+│   ├── components/
+│   │   ├── clients/         # Testimonials and client review cards
+│   │   ├── contact/         # Studio contact form with state validation
+│   │   ├── featured/        # Case study carousel & project slider
+│   │   ├── footer/          # Site footer with social links & copyright
+│   │   ├── gallery/         # Animal photography gallery with modal lightbox
+│   │   ├── intro/           # Hero section with parallax mascot art
+│   │   ├── introduction/    # Studio showreel player & overview
+│   │   ├── services/        # Capability cards and service tiers
+│   │   └── topbar/          # Unified sticky navigation & mobile drawer
+│   ├── pages/
+│   │   ├── Home.jsx         # Main landing view
+│   │   └── About.jsx        # Studio story, timeline, and team view
+│   ├── App.jsx              # Router configuration
+│   ├── index.js             # Root rendering & React ErrorBoundary
+│   └── globall.scss         # Global SCSS variables, resets, and mixins
+├── package.json
+└── README.md
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository or open the project workspace:
+   ```bash
+   git clone <repository-url>
+   cd doge-agency
+   ```
 
-## Learn More
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the application in the browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📦 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Script | Description |
+|---|---|
+| `npm start` | Launches the development server on port 3000 |
+| `npm run build` | Compiles and optimizes static assets for production deployment into `build/` |
+| `npm run lint` | Runs ESLint across all source components and styles |
+| `npm test` | Executes test suites in watch mode |
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🎨 Design System & Palette
 
-### Making a Progressive Web App
+- **Primary Accent**: `#ba723d` / `#a25c2b` (Warm Ochre / Terracotta)
+- **Background Canvas**: `#fdebdd` / `#fff9f4` (Warm Neutral Peach / Off-White)
+- **Dark Text & Headings**: `#0d1a20` / `#2b1f1a` (Deep Slate Charcoal)
+- **Body & Muted Text**: `#55443b` / `#8c7b72` (Earthy Taupe)
+- **Typography**: `Manrope` / `Plus Jakarta Sans` sans-serif hierarchy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.

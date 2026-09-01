@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import './intro.scss';
-import { ArrowDown, Sparkles, Heart, Rocket } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 
 export default function Intro() {
 	const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-	const [barks, setBarks] = useState(0);
 	const [petted, setPetted] = useState(false);
 	const heroRef = useRef(null);
 
@@ -29,22 +27,9 @@ export default function Intro() {
 		};
 	}, []);
 
-	const handlePetDoge = (e) => {
+	const handlePetDoge = () => {
 		setPetted(true);
-		setBarks((prev) => prev + 1);
-		
-		const rect = e.currentTarget.getBoundingClientRect();
-		const x = (rect.left + rect.width / 2) / window.innerWidth;
-		const y = (rect.top + rect.height / 2) / window.innerHeight;
-
-		confetti({
-			particleCount: 35,
-			spread: 60,
-			origin: { x, y },
-			colors: ['#ba723d', '#f8ccab', '#ff7a45', '#ffd166', '#ffffff']
-		});
-
-		setTimeout(() => setPetted(false), 600);
+		setTimeout(() => setPetted(false), 500);
 	};
 
 	const scrollToNext = () => {
@@ -60,7 +45,7 @@ export default function Intro() {
 			<div 
 				className="floating-toy duck" 
 				style={{ 
-					transform: `translate(${mousePos.x * 24}px, ${mousePos.y * 20}px) rotate(${mousePos.x * 8}deg)` 
+					transform: `translate(${mousePos.x * 20}px, ${mousePos.y * 16}px) rotate(${mousePos.x * 6}deg)` 
 				}}
 			>
 				<img src="/assets/parallax/duckpeluche.png" alt="Duck Plush Toy" />
@@ -69,7 +54,7 @@ export default function Intro() {
 			<div 
 				className="floating-toy chicken" 
 				style={{ 
-					transform: `translate(${mousePos.x * -30}px, ${mousePos.y * -25}px) rotate(${mousePos.x * -12}deg)` 
+					transform: `translate(${mousePos.x * -24}px, ${mousePos.y * -20}px) rotate(${mousePos.x * -8}deg)` 
 				}}
 			>
 				<img src="/assets/parallax/screamingchicken.png" alt="Screaming Chicken Toy" />
@@ -78,7 +63,7 @@ export default function Intro() {
 			<div 
 				className="floating-toy tennis" 
 				style={{ 
-					transform: `translate(${mousePos.x * 35}px, ${mousePos.y * 30}px) rotate(${mousePos.x * 25}deg)` 
+					transform: `translate(${mousePos.x * 28}px, ${mousePos.y * 24}px) rotate(${mousePos.x * 15}deg)` 
 				}}
 			>
 				<img src="/assets/parallax/tennisball.png" alt="Tennis Ball Toy" />
@@ -86,22 +71,17 @@ export default function Intro() {
 
 			<div className="hero-container">
 				<div className="left">
-					<div className="badge-pill">
-						<Sparkles size={15} color="#ba723d" />
-						<span>Creative Agency & Pet Tech • 2026 Edition</span>
+					<div className="studio-tag">
+						<span>Creative Studio & Digital Workshop</span>
 					</div>
 
 					<h1 className="hero-title">
-						Such Creative.<br />
-						<span className="gradient-text">Much Digital.</span>
+						Playful design.<br />
+						Serious craft.
 					</h1>
 
-					<h2 className="hero-subtitle">
-						Welcome to the premier digital showcase of Doge Agency.
-					</h2>
-
 					<p className="hero-description">
-						We engineer high-performance web applications, interactive 3D & parallax experiences, and award-winning digital solutions for forward-thinking brands worldwide.
+						We are an independent creative agency designing memorable brand identities, interactive web experiences, and digital products for forward-thinking brands.
 					</p>
 
 					<div className="cta-group">
@@ -110,35 +90,20 @@ export default function Intro() {
 							className="btn-primary" 
 							onClick={scrollToNext}
 						>
-							<Rocket size={18} />
-							Explore Projects
+							<span>Explore Selected Work</span>
+							<ArrowRight size={16} />
 						</button>
 
 						<button 
 							type="button" 
-							className={`btn-pet ${petted ? 'petted' : ''}`}
-							onClick={handlePetDoge}
+							className="btn-secondary"
+							onClick={() => {
+								const contactElem = document.getElementById('contact');
+								if (contactElem) contactElem.scrollIntoView({ behavior: 'smooth' });
+							}}
 						>
-							<Heart size={18} className={petted ? 'beating' : ''} />
-							<span>{barks > 0 ? `Barks! (${barks})` : 'Pet Doge'}</span>
+							<span>Get In Touch</span>
 						</button>
-					</div>
-
-					<div className="hero-stats">
-						<div className="stat-item">
-							<strong>150+</strong>
-							<span>Works Completed</span>
-						</div>
-						<div className="stat-divider" />
-						<div className="stat-item">
-							<strong>99.8%</strong>
-							<span>Client Happiness</span>
-						</div>
-						<div className="stat-divider" />
-						<div className="stat-item">
-							<strong>10M+</strong>
-							<span>Shibes Delighted</span>
-						</div>
 					</div>
 				</div>
 
@@ -146,30 +111,24 @@ export default function Intro() {
 					<div 
 						className="doge-stage"
 						style={{
-							transform: `translate(${mousePos.x * 12}px, ${mousePos.y * 10}px)`
+							transform: `translate(${mousePos.x * 10}px, ${mousePos.y * 8}px)`
 						}}
 					>
-						<div className="doge-halo" />
 						<img 
 							src="/assets/bigdoge.png" 
-							alt="Big Doge Mascot" 
+							alt="Doge Studio Mascot" 
 							className={`doge-img ${petted ? 'bounce' : ''}`}
 							onClick={handlePetDoge}
-							title="Click to pet Doge!"
+							title="Click to interact"
 						/>
-
-						{/* Speech Bubble */}
-						<div className="doge-bubble">
-							<span>wow. such modern. much frontend! ✨</span>
-						</div>
 					</div>
 				</div>
 			</div>
 
 			<div className="scroll-indicator" onClick={scrollToNext} role="button" tabIndex={0}>
-				<span className="scroll-text">SCROLL TO DISCOVER</span>
+				<span className="scroll-text">Scroll to explore</span>
 				<div className="scroll-icon-wrap">
-					<ArrowDown size={18} />
+					<ArrowDown size={15} />
 				</div>
 			</div>
 		</section>

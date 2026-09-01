@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import './introduction.scss';
-import { Play, Pause, Volume2, VolumeX, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 export default function Introduction() {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -31,50 +31,27 @@ export default function Introduction() {
 	return (
 		<section className="introduction" id="introduction">
 			<div className="section-container">
-				<div className="section-header">
-					<div className="eyebrow">
-						<span className="dot" />
-						<span>01 / OVERVIEW & SHOWREEL</span>
-					</div>
-					<h2 className="section-title">The Doge Creative Standard</h2>
-					<div className="accent-bar" />
-				</div>
-
 				<div className="content-grid">
 					<div className="left-column">
-						<h3 className="headline">
-							Engineering memorable, playful, and conversion-focused digital experiences.
-						</h3>
+						<span className="section-kicker">Agency Showreel & Philosophy</span>
+						<h2 className="headline">
+							Design with personality. Engineering with purpose.
+						</h2>
 						<p className="description">
-							Founded on the spirit of boundless curiosity and relentless craftsmanship, Doge Agency combines cutting-edge frontend engineering with immersive visual identity.
+							Founded on curiosity and craft, Doge Agency partners with forward-thinking teams to create distinctive digital identities, interactive web experiences, and bespoke products.
 						</p>
 						<p className="description">
-							From high-traffic interactive web apps to parallax brand stories and real-time animal photography portfolios, we turn bold ideas into responsive digital realities.
+							We believe great digital design should be engaging, intuitive, and built with rigorous performance from the ground up.
 						</p>
 
-						<div className="feature-list">
-							<div className="feature-item">
-								<Zap size={20} className="feature-icon" />
-								<div>
-									<strong>Fluid 60FPS Performance</strong>
-									<span>Optimized GPU-accelerated motion and lightweight bundle architecture.</span>
-								</div>
+						<div className="pillars-row">
+							<div className="pillar">
+								<strong>Brand & Motion</strong>
+								<span>Crafting expressive visual languages that stand out.</span>
 							</div>
-
-							<div className="feature-item">
-								<ShieldCheck size={20} className="feature-icon" />
-								<div>
-									<strong>Production Ready & Accessible</strong>
-									<span>Strict WCAG standards, semantic HTML, and responsive mobile-first views.</span>
-								</div>
-							</div>
-
-							<div className="feature-item">
-								<CheckCircle2 size={20} className="feature-icon" />
-								<div>
-									<strong>Much Quality Assurance</strong>
-									<span>Rigorous browser compatibility, state validation, and resilient APIs.</span>
-								</div>
+							<div className="pillar">
+								<strong>Creative Tech</strong>
+								<span>Building responsive, interactive web applications.</span>
 							</div>
 						</div>
 					</div>
@@ -94,9 +71,9 @@ export default function Introduction() {
 									<div className="poster-overlay" />
 									<div className="play-cta">
 										<div className="play-circle">
-											<Play size={24} fill="#ffffff" color="#ffffff" />
+											<Play size={22} fill="#ffffff" color="#ffffff" />
 										</div>
-										<span className="play-text">WATCH AGENCY REEL</span>
+										<span className="play-text">WATCH SHOWREEL</span>
 									</div>
 								</div>
 							) : (
@@ -113,12 +90,12 @@ export default function Introduction() {
 									</video>
 									<div className="video-controls-bar">
 										<button type="button" onClick={togglePlay} className="vid-btn" title={isPlaying ? 'Pause' : 'Play'}>
-											{isPlaying ? <Pause size={18} /> : <Play size={18} />}
+											{isPlaying ? <Pause size={16} /> : <Play size={16} />}
 										</button>
 										<button type="button" onClick={toggleMute} className="vid-btn" title={isMuted ? 'Unmute' : 'Mute'}>
-											{isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+											{isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
 										</button>
-										<span className="badge-live">DOGE SHOWREEL • 1080P</span>
+										<span className="badge-live">DOGE STUDIO REEL</span>
 									</div>
 								</div>
 							)}

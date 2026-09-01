@@ -1,163 +1,118 @@
-import { useEffect, useState, useCallback } from 'react';
-import './gallery.scss';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Sparkles, RefreshCw, ZoomIn, Heart, Share2, X, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import './gallery.scss';
+import { Heart, Maximize2, X, ChevronLeft, ChevronRight, RefreshCw } from 'lucide-react';
 
-const fallbackImages = {
-	shibes: [
-		'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=800&auto=format&fit=crop&q=80'
-	],
-	cats: [
-		'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&auto=format&fit=crop&q=80'
-	],
-	birds: [
-		'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1480044965905-02098d419e96?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?w=800&auto=format&fit=crop&q=80',
-		'https://images.unsplash.com/photo-1555169062-013468b47731?w=800&auto=format&fit=crop&q=80'
-	]
-};
+const localImages = [
+	{ id: 'loc-1', url: '/assets/img1.jpg', tag: 'Editorial Shoot', source: 'Studio Archive' },
+	{ id: 'loc-2', url: '/assets/img2.jpg', tag: 'Creative Capture', source: 'Studio Archive' },
+	{ id: 'loc-3', url: '/assets/img3.jpg', tag: 'Animal Portraiture', source: 'Studio Archive' },
+	{ id: 'loc-4', url: '/assets/videothumbnail.png', tag: 'Motion Still', source: 'Studio Archive' },
+	{ id: 'loc-5', url: '/assets/parallax/duckpeluche.png', tag: 'Asset Art', source: 'Studio Archive' },
+	{ id: 'loc-6', url: '/assets/bigdoge.png', tag: 'Original Mascot', source: 'Studio Archive' }
+];
 
 export default function Gallery() {
-	const [category, setCategory] = useState('shibes');
-	const [images, setImages] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const [previewIndex, setPreviewIndex] = useState(null);
-	const [likedImages, setLikedImages] = useState({});
-	const [copiedUrl, setCopiedUrl] = useState(null);
+	const [images, setImages] = useState(localImages);
+	const [activeCategory, setActiveCategory] = useState('all');
+	const [loading, setLoading] = useState(false);
+	const [likedIds, setLikedIds] = useState([]);
+	const [lightboxIndex, setLightboxIndex] = useState(null);
 
-	const fetchImages = useCallback(async (cat, append = false) => {
-		setIsLoading(true);
+	const fetchLiveDogs = async (count = 6) => {
+		setLoading(true);
 		try {
-			// Using HTTPS endpoint
-			const res = await axios.get(`https://shibe.online/api/${cat}?count=6&urls=true&httpsUrls=true`, {
-				timeout: 4000
-			});
-			if (res.data && Array.isArray(res.data) && res.data.length > 0) {
-				const formatted = res.data.map((url, i) => ({
-					id: `${cat}-${Date.now()}-${i}`,
-					url
+			const res = await axios.get(`https://shibe.online/api/shibes?count=${count}&urls=true&httpsUrls=true`);
+			if (Array.isArray(res.data)) {
+				const remoteItems = res.data.map((url, i) => ({
+					id: `live-${Date.now()}-${i}`,
+					url,
+					tag: 'Community Shibe',
+					source: 'Live Feed'
 				}));
-				setImages((prev) => (append ? [...prev, ...formatted] : formatted));
-			} else {
-				throw new Error('Empty response');
+				setImages((prev) => [...prev, ...remoteItems]);
 			}
 		} catch (err) {
-			console.warn('Using fallback image set for', cat);
-			const fallbacks = fallbackImages[cat] || fallbackImages.shibes;
-			const formatted = fallbacks.map((url, i) => ({
-				id: `${cat}-fb-${Date.now()}-${i}`,
-				url
-			}));
-			setImages((prev) => (append ? [...prev, ...formatted] : formatted));
+			console.warn('Could not reach remote gallery API; maintaining local archive.', err);
 		} finally {
-			setIsLoading(false);
+			setLoading(false);
 		}
-	}, []);
+	};
 
 	useEffect(() => {
-		fetchImages(category, false);
-	}, [category, fetchImages]);
+		// Fetch initial 3 shibes
+		fetchLiveDogs(3);
+	}, []);
 
-	const handleCategoryChange = (newCat) => {
-		if (newCat === category && images.length > 0) return;
-		setCategory(newCat);
-	};
-
-	const handleLoadMore = () => {
-		fetchImages(category, true);
-	};
-
-	const toggleLike = (id, e) => {
+	const toggleLike = (e, id) => {
 		e.stopPropagation();
-		setLikedImages((prev) => ({
-			...prev,
-			[id]: !prev[id]
-		}));
+		setLikedIds((prev) =>
+			prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+		);
 	};
 
-	const handleCopyUrl = (url, e) => {
-		e.stopPropagation();
-		if (navigator.clipboard) {
-			navigator.clipboard.writeText(url);
-			setCopiedUrl(url);
-			setTimeout(() => setCopiedUrl(null), 2000);
-		}
-	};
+	const filteredImages = images.filter((img) => {
+		if (activeCategory === 'favorites') return likedIds.includes(img.id);
+		if (activeCategory === 'studio') return img.source === 'Studio Archive';
+		return true;
+	});
 
 	const openLightbox = (index) => {
-		setPreviewIndex(index);
+		setLightboxIndex(index);
 	};
 
 	const closeLightbox = () => {
-		setPreviewIndex(null);
+		setLightboxIndex(null);
 	};
 
-	const nextLightbox = (e) => {
+	const handleLightboxPrev = (e) => {
 		e.stopPropagation();
-		setPreviewIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+		if (lightboxIndex !== null && filteredImages.length > 0) {
+			setLightboxIndex((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
+		}
 	};
 
-	const prevLightbox = (e) => {
+	const handleLightboxNext = (e) => {
 		e.stopPropagation();
-		setPreviewIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+		if (lightboxIndex !== null && filteredImages.length > 0) {
+			setLightboxIndex((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
+		}
 	};
 
 	return (
 		<section className="gallery" id="gallery">
 			<div className="section-container">
+				{/* Section Header */}
 				<div className="section-header">
-					<div className="eyebrow">
-						<span className="dot" />
-						<span>04 / LIVE PET PHOTOGRAPHY</span>
-					</div>
-
 					<div className="header-row">
 						<div>
-							<h2 className="section-title">Doge & Friends Gallery</h2>
-							<p className="subtitle">Real-time photography feeds and curated high-resolution captures</p>
+							<span className="section-kicker">Visual Archive</span>
+							<h2 className="section-title">Gallery & Studio Shots</h2>
+							<p className="subtitle">Curated visual work and photography captures.</p>
 						</div>
 
-						{/* Segmented Category Filter Switch */}
-						<div className="category-switcher" role="tablist">
+						{/* Category Switcher */}
+						<div className="category-switcher">
 							<button
 								type="button"
-								role="tab"
-								aria-selected={category === 'shibes'}
-								className={`cat-btn ${category === 'shibes' ? 'active' : ''}`}
-								onClick={() => handleCategoryChange('shibes')}
+								className={`cat-btn ${activeCategory === 'all' ? 'active' : ''}`}
+								onClick={() => setActiveCategory('all')}
 							>
-								🐕 Shibes
+								All ({images.length})
 							</button>
 							<button
 								type="button"
-								role="tab"
-								aria-selected={category === 'cats'}
-								className={`cat-btn ${category === 'cats' ? 'active' : ''}`}
-								onClick={() => handleCategoryChange('cats')}
+								className={`cat-btn ${activeCategory === 'studio' ? 'active' : ''}`}
+								onClick={() => setActiveCategory('studio')}
 							>
-								🐈 Cats
+								Studio
 							</button>
 							<button
 								type="button"
-								role="tab"
-								aria-selected={category === 'birds'}
-								className={`cat-btn ${category === 'birds' ? 'active' : ''}`}
-								onClick={() => handleCategoryChange('birds')}
+								className={`cat-btn ${activeCategory === 'favorites' ? 'active' : ''}`}
+								onClick={() => setActiveCategory('favorites')}
 							>
-								🦜 Birds
+								Favorites ({likedIds.length})
 							</button>
 						</div>
 					</div>
@@ -165,49 +120,44 @@ export default function Gallery() {
 
 				{/* Gallery Grid */}
 				<div className="gallery-grid">
-					{images.map((item, index) => {
-						const isLiked = likedImages[item.id];
+					{filteredImages.map((img, index) => {
+						const isLiked = likedIds.includes(img.id);
 						return (
 							<div
-								key={item.id}
+								key={img.id}
 								className="gallery-card"
 								onClick={() => openLightbox(index)}
 							>
 								<img
-									src={item.url}
-									alt={`${category} capture ${index + 1}`}
+									src={img.url}
+									alt={img.tag}
 									className="card-image"
 									loading="lazy"
 									onError={(e) => {
-										e.currentTarget.src = fallbackImages[category][index % fallbackImages[category].length];
+										e.currentTarget.src = '/assets/img1.jpg';
 									}}
 								/>
-
 								<div className="card-overlay">
 									<div className="top-actions">
 										<button
 											type="button"
 											className={`action-icon-btn ${isLiked ? 'liked' : ''}`}
-											onClick={(e) => toggleLike(item.id, e)}
-											title="Like photo"
+											onClick={(e) => toggleLike(e, img.id)}
+											aria-label="Favorite image"
 										>
-											<Heart size={16} fill={isLiked ? '#ff4757' : 'none'} color={isLiked ? '#ff4757' : '#ffffff'} />
-										</button>
-										<button
-											type="button"
-											className="action-icon-btn"
-											onClick={(e) => handleCopyUrl(item.url, e)}
-											title="Copy image link"
-										>
-											{copiedUrl === item.url ? <Check size={16} color="#2ed573" /> : <Share2 size={16} color="#ffffff" />}
+											<Heart
+												size={16}
+												color={isLiked ? '#ba723d' : '#ffffff'}
+												fill={isLiked ? '#ba723d' : 'none'}
+											/>
 										</button>
 									</div>
 
 									<div className="bottom-info">
-										<span className="photo-tag">#{category.toUpperCase()} • 0{index + 1}</span>
+										<span className="photo-tag">{img.tag}</span>
 										<button type="button" className="zoom-btn">
-											<ZoomIn size={16} />
-											<span>Zoom</span>
+											<Maximize2 size={13} />
+											<span>Expand</span>
 										</button>
 									</div>
 								</div>
@@ -215,82 +165,66 @@ export default function Gallery() {
 						);
 					})}
 
-					{/* Loading Skeletons */}
-					{isLoading &&
-						Array.from({ length: 3 }).map((_, i) => (
-							<div key={`skel-${i}`} className="gallery-card skeleton-card">
-								<div className="skeleton-shimmer" />
-							</div>
-						))}
+					{loading && (
+						<div className="gallery-card skeleton-card">
+							<div className="skeleton-shimmer" />
+						</div>
+					)}
 				</div>
 
 				{/* Load More Action */}
 				<div className="load-more-wrap">
-					<p className="load-info">Want to see more adorable {category} photography?</p>
+					<p className="load-info">
+						Showing {filteredImages.length} photographs
+					</p>
 					<button
 						type="button"
-						className={`load-more-btn ${isLoading ? 'loading' : ''}`}
-						onClick={handleLoadMore}
-						disabled={isLoading}
+						className={`load-more-btn ${loading ? 'loading' : ''}`}
+						onClick={() => fetchLiveDogs(6)}
+						disabled={loading}
 					>
-						{isLoading ? (
-							<>
-								<RefreshCw size={18} className="spin-icon" />
-								<span>Fetching Shibes...</span>
-							</>
-						) : (
-							<>
-								<Sparkles size={18} />
-								<span>Load More Photos</span>
-							</>
-						)}
+						<RefreshCw size={16} className={loading ? 'spin-icon' : ''} />
+						<span>{loading ? 'Fetching Photographs...' : 'Load More Photographs'}</span>
 					</button>
 				</div>
 
-				{/* Full-Screen Lightbox Modal */}
-				{previewIndex !== null && images[previewIndex] && (
+				{/* Lightbox Modal */}
+				{lightboxIndex !== null && filteredImages[lightboxIndex] && (
 					<div className="lightbox-backdrop" onClick={closeLightbox}>
-						<button type="button" className="lightbox-close" onClick={closeLightbox} aria-label="Close Lightbox">
-							<X size={28} />
+						<button type="button" className="lightbox-close" onClick={closeLightbox} aria-label="Close viewer">
+							<X size={24} />
 						</button>
 
-						<button type="button" className="lightbox-nav prev" onClick={prevLightbox} aria-label="Previous Photo">
-							<ChevronLeft size={32} />
+						<button type="button" className="lightbox-nav prev" onClick={handleLightboxPrev} aria-label="Previous image">
+							<ChevronLeft size={28} />
 						</button>
 
 						<div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
 							<img
-								src={images[previewIndex].url}
-								alt={`Preview ${previewIndex + 1}`}
+								src={filteredImages[lightboxIndex].url}
+								alt="Enlarged gallery capture"
 								className="lightbox-image"
 							/>
 							<div className="lightbox-caption">
-								<span>{category.toUpperCase()} • Photo {previewIndex + 1} of {images.length}</span>
+								<span>{filteredImages[lightboxIndex].tag} ({lightboxIndex + 1} / {filteredImages.length})</span>
 								<div className="lightbox-actions">
 									<button
 										type="button"
 										className="lightbox-btn"
-										onClick={(e) => toggleLike(images[previewIndex].id, e)}
+										onClick={(e) => toggleLike(e, filteredImages[lightboxIndex].id)}
 									>
 										<Heart
-											size={18}
-											fill={likedImages[images[previewIndex].id] ? '#ff4757' : 'none'}
-											color={likedImages[images[previewIndex].id] ? '#ff4757' : '#ffffff'}
+											size={16}
+											color={likedIds.includes(filteredImages[lightboxIndex].id) ? '#ba723d' : '#ffffff'}
+											fill={likedIds.includes(filteredImages[lightboxIndex].id) ? '#ba723d' : 'none'}
 										/>
-									</button>
-									<button
-										type="button"
-										className="lightbox-btn"
-										onClick={(e) => handleCopyUrl(images[previewIndex].url, e)}
-									>
-										{copiedUrl === images[previewIndex].url ? <Check size={18} color="#2ed573" /> : <Share2 size={18} />}
 									</button>
 								</div>
 							</div>
 						</div>
 
-						<button type="button" className="lightbox-nav next" onClick={nextLightbox} aria-label="Next Photo">
-							<ChevronRight size={32} />
+						<button type="button" className="lightbox-nav next" onClick={handleLightboxNext} aria-label="Next image">
+							<ChevronRight size={28} />
 						</button>
 					</div>
 				)}

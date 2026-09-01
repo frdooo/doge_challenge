@@ -1,45 +1,45 @@
 import './about.scss';
 import Topbar from '../components/topbar/Topbar';
 import Footer from '../components/footer/Footer';
-import { Sparkles, Shield, Rocket, ArrowRight, Code2 } from 'lucide-react';
+import { ArrowRight, Layers, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const evolutionPoints = [
 	{
-		year: '2021 Origin',
-		title: 'The Challenge Inception',
-		desc: 'Built as an experimental recruiting coding challenge exploring parallax assets, SCSS layouts, and basic API image endpoints.'
+		year: '2021',
+		title: 'The Original Challenge',
+		desc: 'Created as a technical recruitment project testing parallax layout, custom SCSS styling, and responsive web foundations.'
 	},
 	{
-		year: '2026 Upgrade',
-		title: 'Modern Frontend Excellence',
-		desc: 'Refactored to modern React architecture with immutable state management, accessible WCAG color contrast, fluid responsive typography, and resilient API fallbacks.'
+		year: '2026',
+		title: 'Frontend Modernization',
+		desc: 'Re-engineered into a clean, modular React application with robust component hierarchy, fluid typography, and accessible contrasts.'
 	},
 	{
-		year: 'Architecture',
-		title: 'Performance & Scalability',
-		desc: 'Eliminated synchronous layout thrashing, replaced fragile DOM mutations with declarative state, and optimized 60FPS animations.'
+		year: 'Standard',
+		title: 'Performance & Structure',
+		desc: 'Optimized animation loops, resilient API fallbacks, and clean design patterns built for smooth cross-device rendering.'
 	}
 ];
 
 const teamMembers = [
 	{
 		name: 'Doge Sensei',
-		role: 'Chief Inspiration Officer & Lead Mascot',
+		role: 'Studio Mascot & Inspiration',
 		avatar: '/assets/bigdoge.png',
-		bio: 'Guiding the agency with ancient wisdom, boundless optimism, and high enthusiasm for tennis balls.'
+		bio: 'The original character behind the agency branding and visual identity.'
 	},
 	{
 		name: 'Elena Rostova',
-		role: 'Lead UI/UX & Motion Architect',
+		role: 'Lead UI/UX Designer',
 		avatar: '/assets/img1.jpg',
-		bio: 'Specializing in physics-based micro-interactions, responsive design tokens, and fluid layout typography.'
+		bio: 'Specializing in design systems, micro-interactions, and responsive typography.'
 	},
 	{
 		name: 'Marcus Vance',
-		role: 'Senior Full-Stack Engineer',
+		role: 'Frontend Engineer',
 		avatar: '/assets/img2.jpg',
-		bio: 'Architecting resilient cloud pipelines, high-throughput APIs, and performance-tuned frontend systems.'
+		bio: 'Focused on React performance, interactive layouts, and cross-browser reliability.'
 	}
 ];
 
@@ -51,13 +51,10 @@ export default function About() {
 			{/* Hero Header */}
 			<section className="about-hero">
 				<div className="container">
-					<div className="badge-pill">
-						<Sparkles size={14} color="#ba723d" />
-						<span>OUR STORY & CRAFT</span>
-					</div>
+					<span className="section-kicker">Studio Story</span>
 					<h1 className="hero-title">About Doge Agency</h1>
 					<p className="hero-subtitle">
-						Bridging playful character design with state-of-the-art frontend engineering.
+						Bridging distinctive character design with modern frontend engineering standards.
 					</p>
 
 					<div className="mascot-stage">
@@ -70,10 +67,10 @@ export default function About() {
 			<section className="evolution-section">
 				<div className="container">
 					<div className="section-head">
-						<h2>From 2021 Challenge to 2026 Production Standard</h2>
-						<div className="accent-bar" />
+						<span className="section-kicker">Timeline & Engineering</span>
+						<h2>From 2021 Challenge to Modern Architecture</h2>
 						<p>
-							What began as a technical challenge has evolved into a full-scale digital playground. Here is how our standards matured:
+							How the codebase evolved from a legacy recruitment task into a modern, production-grade frontend showcase.
 						</p>
 					</div>
 
@@ -94,19 +91,19 @@ export default function About() {
 				<div className="container">
 					<div className="values-grid">
 						<div className="value-item">
-							<Code2 size={32} className="val-icon" />
-							<h3>Declarative State</h3>
-							<p>Clean immutable React state patterns preventing memory leaks and UI race conditions.</p>
+							<Layers size={28} className="val-icon" />
+							<h3>Modular Components</h3>
+							<p>Clean separation of concerns with reusable React components and scoped styles.</p>
 						</div>
 						<div className="value-item">
-							<Rocket size={32} className="val-icon" />
-							<h3>60FPS Performance</h3>
-							<p>Hardware-accelerated parallax motion and responsive touch gestures across all screen sizes.</p>
+							<Zap size={28} className="val-icon" />
+							<h3>Fluid Interactions</h3>
+							<p>Hardware-accelerated parallax motion and smooth responsive states on all screens.</p>
 						</div>
 						<div className="value-item">
-							<Shield size={32} className="val-icon" />
+							<ShieldCheck size={28} className="val-icon" />
 							<h3>Resilient Fallbacks</h3>
-							<p>Guaranteed uptime with graceful offline/fallback asset sets when third-party APIs are unavailable.</p>
+							<p>Local asset fallbacks ensuring unbroken presentation regardless of network status.</p>
 						</div>
 					</div>
 				</div>
@@ -116,8 +113,8 @@ export default function About() {
 			<section className="team-section">
 				<div className="container">
 					<div className="section-head">
-						<h2>Meet the Leadership</h2>
-						<div className="accent-bar" />
+						<span className="section-kicker">Studio Team</span>
+						<h2>Core Members</h2>
 					</div>
 
 					<div className="team-grid">
@@ -134,10 +131,10 @@ export default function About() {
 					</div>
 
 					<div className="cta-box">
-						<h3>Ready to collaborate on your next digital adventure?</h3>
+						<h3>Ready to start your next digital project?</h3>
 						<Link to="/#contact" className="btn-cta">
-							<span>Get In Touch with Doge Agency</span>
-							<ArrowRight size={18} />
+							<span>Contact Our Studio</span>
+							<ArrowRight size={16} />
 						</Link>
 					</div>
 				</div>

@@ -6,16 +6,40 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 export default function Topbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const [activeSection, setActiveSection] = useState('intro');
 	const location = useLocation();
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 20);
+
+			if (location.pathname === '/') {
+				const sections = ['contact', 'client', 'gallery', 'services', 'featured', 'introduction', 'intro'];
+				const scrollY = window.scrollY;
+
+				if (scrollY < 200) {
+					setActiveSection('intro');
+					return;
+				}
+
+				for (const sec of sections) {
+					const elem = document.getElementById(sec);
+					if (elem) {
+						const rect = elem.getBoundingClientRect();
+						if (rect.top <= 160 && rect.bottom >= 100) {
+							setActiveSection(sec);
+							break;
+						}
+					}
+				}
+			}
 		};
+
 		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [location.pathname]);
 
 	const scrollToSection = (sectionId) => {
 		setMenuOpen(false);
@@ -41,22 +65,22 @@ export default function Topbar() {
 				</div>
 
 				<nav className="right" aria-label="Main Navigation">
-					<Link className={`link ${location.pathname === '/' ? 'active' : ''}`} to="/">
+					<Link className={`link ${location.pathname === '/' && activeSection === 'intro' ? 'active' : ''}`} to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 						Home
 					</Link>
-					<button type="button" className="link-btn" onClick={() => scrollToSection('introduction')}>
+					<button type="button" className={`link-btn ${location.pathname === '/' && activeSection === 'introduction' ? 'active' : ''}`} onClick={() => scrollToSection('introduction')}>
 						Showreel
 					</button>
-					<button type="button" className="link-btn" onClick={() => scrollToSection('featured')}>
+					<button type="button" className={`link-btn ${location.pathname === '/' && activeSection === 'featured' ? 'active' : ''}`} onClick={() => scrollToSection('featured')}>
 						Works
 					</button>
-					<button type="button" className="link-btn" onClick={() => scrollToSection('services')}>
+					<button type="button" className={`link-btn ${location.pathname === '/' && activeSection === 'services' ? 'active' : ''}`} onClick={() => scrollToSection('services')}>
 						Services
 					</button>
-					<button type="button" className="link-btn" onClick={() => scrollToSection('gallery')}>
+					<button type="button" className={`link-btn ${location.pathname === '/' && activeSection === 'gallery' ? 'active' : ''}`} onClick={() => scrollToSection('gallery')}>
 						Gallery
 					</button>
-					<button type="button" className="link-btn" onClick={() => scrollToSection('client')}>
+					<button type="button" className={`link-btn ${location.pathname === '/' && activeSection === 'client' ? 'active' : ''}`} onClick={() => scrollToSection('client')}>
 						Testimonials
 					</button>
 					<Link className={`link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">
@@ -115,8 +139,8 @@ export default function Topbar() {
 					</ul>
 
 					<div className="social">
-						<a href="#social-wechat" title="WeChat" onClick={(e) => { e.preventDefault(); alert("WeChat ID: DogeAgency2026"); }}>
-							<img src="/assets/svg/wechatsmall.svg" alt="WeChat" />
+						<a href="#contact" title="Contact Us" onClick={() => { setMenuOpen(false); scrollToSection('contact'); }}>
+							<img src="/assets/svg/wechatsmall.svg" alt="Contact" />
 						</a>
 						<a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn">
 							<img src="/assets/svg/linkedinsmall.svg" alt="LinkedIn" />

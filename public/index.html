@@ -13,6 +13,30 @@
     <meta name="description" content="An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services." />
     <meta property="og:title" content="Doge Creative Agency & Gallery" />
     <meta property="og:description" content="An interactive creative showcase featuring Doge animations, parallax toys, project showcases, animal photography gallery, and agency services." />
+    <script>
+      // Gracefully handle external browser extension exceptions (e.g. MetaMask injection in sandboxed iframe)
+      (function() {
+        const isExtensionError = (msg) => {
+          if (!msg) return false;
+          const text = typeof msg === 'string' ? msg : (msg.message || msg.reason || String(msg));
+          return /MetaMask|ethereum|inpage|chrome-extension|moz-extension|safari-extension|evm|web3/i.test(text);
+        };
+
+        window.addEventListener('unhandledrejection', function(event) {
+          if (isExtensionError(event.reason)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        }, true);
+
+        window.addEventListener('error', function(event) {
+          if (isExtensionError(event.message) || isExtensionError(event.error) || (event.filename && /extension/i.test(event.filename))) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
     <style>
       * {
         font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

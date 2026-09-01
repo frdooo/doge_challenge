@@ -3,12 +3,12 @@ import './subheader.scss';
 import { ArrowRight } from 'lucide-react';
 
 const navItems = [
-	{ id: 'introduction', label: '01. Overview' },
-	{ id: 'featured', label: '02. Featured Works' },
-	{ id: 'services', label: '03. Services' },
-	{ id: 'gallery', label: '04. Animal Gallery' },
-	{ id: 'client', label: '05. Testimonials' },
-	{ id: 'contact', label: '06. Contact' }
+	{ id: 'introduction', label: 'Overview' },
+	{ id: 'featured', label: 'Selected Work' },
+	{ id: 'services', label: 'Capabilities' },
+	{ id: 'gallery', label: 'Gallery' },
+	{ id: 'client', label: 'Clients' },
+	{ id: 'contact', label: 'Contact' }
 ];
 
 export default function Subheader() {
@@ -42,7 +42,7 @@ export default function Subheader() {
 	};
 
 	return (
-		<nav className="subheader" aria-label="Page Sections Sub-navigation">
+		<nav className="subheader" aria-label="Section Navigation">
 			<div className="wrapper">
 				<div className="menu-scroll">
 					<div className="menu-list">
@@ -66,7 +66,7 @@ export default function Subheader() {
 						onClick={() => scrollTo('contact')}
 					>
 						<span>Start a Project</span>
-						<ArrowRight size={16} />
+						<ArrowRight size={15} />
 					</button>
 				</div>
 			</div>
